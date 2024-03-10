@@ -3,9 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { userAbout } from "../redux/slice/userSlice";
 
 const About = () => {
-
-    const [user, setUser] = useState([]);
-
     const {
         userData: { data },
     } = useSelector((state) => state.user);

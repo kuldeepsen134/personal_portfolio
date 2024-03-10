@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect,  } from "react";
 import Avatar from "react-avatar";
 import { TypeAnimation } from "react-type-animation";
 import About from "./About";

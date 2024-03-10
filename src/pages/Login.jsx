@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch,  } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { login } from "../redux/slice/authSlice";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [show, setShow] = useState(false);
+  const [show] = useState(false);
 
   const dispatch = useDispatch();
-
-  const { loading } = useSelector((state) => state.auth);
 
   const navigate = useNavigate();
 
