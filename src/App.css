@@ -1,7 +1,12 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+
 .private-layout {
   margin-right: 0;
 }
-
 
 img.sb-avatar__image {
   border-radius: 50rem !important;
@@ -63,13 +68,26 @@ img.sb-avatar__image {
   opacity: 80%;
 }
 
-.hero-section {
-  background: url("./assets/images/bgimage.png") no-repeat;
 
-  background-color: #f5df4e;
+.hero-section{
+  background: url("./assets/images/techbg.png") no-repeat;
+  background-position: center;
   background-size: cover;
-  height: 100vh;
+  height: 100vh; 
+  /* background-color: #05326200; */
 }
+
+.hireme{
+  background: url("./assets/images/bgimage.webp") no-repeat;
+  background-size: cover;
+  height: 50vh;
+}
+
+
+.cardImage img{
+  width: 200px;
+}
+
 
 .workBtn {
   margin: 4px;
@@ -150,12 +168,27 @@ input {
   transform: scale(1.2);
 }
 
+.about-me{
+  margin: 80px 0 80px 0;
+}
 
 
+.services{
+  margin: 80px 0 80px 0;
+  padding-bottom: 60px;
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important;
+}
+
+span.wow.heartBeat {
+  font-size: 80px;
+  width: 120px;
+  height: 120px;
+  text-align: center;
+}
 
 
-
-.skill-form button.submitBtn   {
+.skill-form button.submitBtn {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
@@ -173,15 +206,16 @@ input {
   background: #03e9f4;
   color: #fff;
   border-radius: 5px;
-  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,    0 0 100px #03e9f4;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
 }
 
-.skill-form button.submitBtn  span {
+.skill-form button.submitBtn span {
   position: absolute;
   display: block;
 }
 
-.skill-form button.submitBtn  span:nth-child(1) {
+.skill-form button.submitBtn span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
@@ -205,7 +239,7 @@ input {
   background: linear-gradient(270deg, transparent, #03e9f4);
 }
 
-.skill-form button.submitBtn  span:nth-child(4) {
+.skill-form button.submitBtn span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;
@@ -257,25 +291,24 @@ input {
 
 /* USING KEYFRAMES */
 
-.skill-form button.submitBtn  span:nth-child(1) {
+.skill-form button.submitBtn span:nth-child(1) {
   animation: btn-anim1 2s linear infinite;
 }
 
-.skill-form button.submitBtn  span:nth-child(2) {
+.skill-form button.submitBtn span:nth-child(2) {
   animation: btn-anim2 2s linear infinite;
   animation-delay: 0.75s;
 }
 
-.skill-form button.submitBtn  span:nth-child(3) {
+.skill-form button.submitBtn span:nth-child(3) {
   animation: btn-anim3 2s linear infinite;
   animation-delay: 0.5s;
 }
 
-.skill-form button.submitBtn  span:nth-child(4) {
+.skill-form button.submitBtn span:nth-child(4) {
   animation: btn-anim4 2s linear infinite;
-  animation-delay:1.5s;
+  animation-delay: 1.5s;
 }
-
 
 /* Login page */
 
@@ -286,5 +319,3 @@ input {
   background-size: cover;
   height: 100vh;
 }
-
-

@@ -27,7 +27,7 @@ const AppHeader = () => {
         }}
       >
         <div className="container">
-          <a className="navbar-brand fw-bold" href="/home">
+          <a className="navbar-brand fw-bold text-black" href="/home">
             Coding Yaar
           </a>
           <button

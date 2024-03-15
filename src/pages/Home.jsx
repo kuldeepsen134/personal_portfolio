@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { userAbout } from "../redux/slice/userSlice";
 import Project from "./Project";
 import AppHeader from "../components/AppHeader";
+import HireMe from "./HireMe";
 
 const Home = () => {
   const {
@@ -31,9 +32,9 @@ const Home = () => {
             data?.map((user, i) => {
               return (
                 <div className="row py-5" key={i}>
-                  <div className="col-lg-6 py-5 ps-lg-5">
+                  <div className="col-lg-8 py-5 ps-lg-5">
                     <div>
-                      <h1 className="text-white">HI, I'M {user?.title}</h1>
+                      <h1 className="">HI, I'M {user?.full_name}</h1>
                       <TypeAnimation
                         className=""
                         sequence={[user.title, 1000, "developer", 1000]}
@@ -63,11 +64,11 @@ const Home = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="col-lg-6  py-5 ps-lg-5">
+                  <div className="col-lg-4  py-5 ps-lg-5">
                     <Avatar
                       name="avtar"
                       src={`${process.env.REACT_APP_API_BASE_URL}${user?.profile}`}
-                      size="500"
+                      size="300"
                       style={{
                         border: "5px solid white",
                       }}
@@ -82,6 +83,7 @@ const Home = () => {
       <About />
       <Service />
       <Project />
+      <HireMe />
       <Resume />
       <Skill />
       <ContactUS />

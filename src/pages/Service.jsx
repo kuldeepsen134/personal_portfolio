@@ -1,56 +1,33 @@
 import React from "react";
+import service from "../components/service";
 
 const Service = () => {
-
-
-  
   return (
-    <div className="bg-secondary">
+    <div className="services">
       <div className="container">
-        <div className="text-center">
-          {/* <div className="text-center "> */}
-            <span className="bg-warning text-center">What I Do?</span>
-          {/* </div> */}
+        <div className="text-center pt-5 py-4">
+          <span className="bg-warning fs-4 ">What I Do?</span>
         </div>
-        <div className="row text-center mt-4">
+        <div className="row text-center">
           <h2 className="fw-bolder">How I can help your next project</h2>
         </div>
-        <div className="row ">
-          <div className="col-4 text-center">
-            <img
-              width={"400px"}
-              src="https://strapi.dhiwise.com/uploads/Enhancing_User_Experience_with_the_Loading_Component_in_React_Main_Image_df8d468638.webp?w=1920&q=75"
-              alt=""
-            />
-            <span className="text-center">Graphic Design</span>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry’s standard dummy text.
-            </p>
-          </div>
-          <div className="col-4 text-center  ">
-            <img
-              width={"400px"}
-              src="https://strapi.dhiwise.com/uploads/Enhancing_User_Experience_with_the_Loading_Component_in_React_Main_Image_df8d468638.webp?w=1920&q=75"
-              alt=""
-            />
-            <span>Web Design</span>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry’s standard dummy text.
-            </p>
-          </div>
-          <div className="col-4 text-center  ">
-            <img
-              width={"400px"}
-              src="https://strapi.dhiwise.com/uploads/Enhancing_User_Experience_with_the_Loading_Component_in_React_Main_Image_df8d468638.webp?w=1920&q=75"
-              alt=""
-            />
-            <span>Web Development</span>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry’s standard dummy text.
-            </p>
+        <div className="row mt-4">
+          <div class="card-group">
+            {service.map((item, i) => {
+              return (
+                <div className="col-4">
+                  <div class="card text-center p-4 mx-2">
+                    <div className="cardImage ">
+                      <img src={item.image} class="card-img-top" alt="..." />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">{item.title}</h5>
+                      <p class="card-text">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

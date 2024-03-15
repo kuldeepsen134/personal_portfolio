@@ -65,7 +65,7 @@ const ContactUS = () => {
                       type="submit"
                     >
                       Send{" "}
-                      <span className=" ms-3">
+                      <span className="3">
                         <i className="fas fa-arrow-right"></i>
                       </span>
                     </button>

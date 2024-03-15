@@ -142,9 +142,9 @@ a:focus {
 }
 
 @media (min-width: 992px) {
-  #wrapper {
+  /* #wrapper {
     padding-left: 250px;
-  }
+  } */
   
   #wrapper.toggled {
     padding-left: 60px;

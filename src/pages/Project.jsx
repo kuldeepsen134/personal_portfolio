@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { projectList } from "../redux/slice/projectSlice";
 import { DNA } from "react-loader-spinner";
+
 const Project = () => {
   const {
     projectListData: { data },
@@ -28,32 +29,26 @@ const Project = () => {
           />
         </div>
       ) : (
-        <div className="row">
-          {data &&
-            data?.map((item, i) => {
-              return (
-                <div className="col-md-4">
-                  <div className="image-container d-flex" key={i}>
-                    <div className="">
-                      {item?.photoes.map((pic) => (
-                        <>
-                          <img
-                            src={`${process.env.REACT_APP_API_BASE_URL}${pic}`}
-                            className="img-fluid"
-                            key={i}
-                            alt={pic}
-                            sizes={100}
-                            width={100}
-                          />
-                        </>
-                      ))}
-                      <p>{item?.title}</p>
-                      <p>{item?.description}</p>
-                    </div>
+        <div className="row my-4">
+          {data?.map((item, i) => (
+            <div className="col-4" key={i}>
+              <div className="card text-center p-2">
+                {item.photoes.map((pic, j) => (
+                  <div className="cardImage" key={j}>
+                    <img
+                      src={`${process.env.REACT_APP_API_BASE_URL}${pic}`}
+                      className="card-img-top"
+                      alt={pic}
+                      sizes={100}
+                      width={100}
+                    />
                   </div>
-                </div>
-              );
-            })}
+                ))}
+                <h5 className="card-title my-4">{item.title}</h5>
+                <p className="card-text">{item.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       )}
     </div>
