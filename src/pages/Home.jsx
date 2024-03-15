@@ -22,11 +22,16 @@ const Home = () => {
   useEffect(() => {
     dispatch(userAbout(""));
   }, [dispatch]);
-
+  const scrollToAbout = (id) => {
+    const aboutUsSection = document.getElementById(id);
+    if (aboutUsSection) {
+      aboutUsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <>
       <AppHeader />
-      <div className="hero-section">
+      <div className="hero-section" id="home">
         <div className="container">
           {data &&
             data?.map((user, i) => {
@@ -48,19 +53,15 @@ const Home = () => {
                         repeat={Infinity}
                       />
 
-                      <p className="mt-4">{user?.aboutUs}</p>
+                      <p className="fs-3 mt-4">{user?.aboutUs}</p>
                     </div>
 
                     <ul className="d-flex ">
                       <li className="workBtn">
-                        <a href="/" className="text-decoration-none text-light">
-                          View my Works
-                        </a>
+                        <button type="button" className="btn btn-outline-warning"> View my Works</button>
                       </li>
                       <li className="workBtn">
-                        <a href="/" className="text-decoration-none text-light">
-                          Contact Me
-                        </a>
+                        <button type="button" className="btn btn-outline-warning"  onClick={() => scrollToAbout('aboutUs')}>Contact Me</button>
                       </li>
                     </ul>
                   </div>

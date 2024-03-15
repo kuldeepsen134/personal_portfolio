@@ -3,7 +3,7 @@ import React from "react";
 const ContactUS = () => {
   return (
     <>
-      <div className="contactUS">
+      <div className="contactUS" id="contactMe">
         <div className="container">
           <div className="row my-4">
             <div className="col-6 mt-4 ">

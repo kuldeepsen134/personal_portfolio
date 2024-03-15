@@ -92,9 +92,7 @@ img.sb-avatar__image {
 .workBtn {
   margin: 4px;
   border-radius: 10px;
-  padding: 10px;
   list-style: none;
-  background-color: #212121;
   color: #fff;
 }
 .progress-bar {

@@ -4,9 +4,7 @@ import { userAbout } from "../redux/slice/userSlice";
 
 const About = () => {
 
-    const {
-        userData: { data },
-    } = useSelector((state) => state.user);
+    const { userData: { data } } = useSelector((state) => state.user);
 
     const dispatch = useDispatch();
 
@@ -15,8 +13,7 @@ const About = () => {
     }, [dispatch]);
 
     return (
-        
-        <div className='about-me'>
+        <div className='about-me' id='aboutUs' >
             <div className='container'>
                 <div className='text-center mt-4'>
                     <span className='bg-warning text-center fs-4'>About Me </span>
@@ -32,7 +29,7 @@ const About = () => {
                         <p> {data && data[0]?.aboutUs} </p>
                     </div>
                     <div className='col-4 text-center '>
-                        <span class="experience rounded-circle wow heartBeat bg-warning" >22</span>
+                        <span className="experience rounded-circle wow heartBeat bg-warning" >22</span>
                         <p className='fs-2 fw-bold' >Years of Experiance</p>
                     </div>
                 </div>

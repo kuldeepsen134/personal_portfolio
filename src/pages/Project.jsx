@@ -24,7 +24,7 @@ const Project = () => {
             height="100"
             width="80"
             ariaLabel="dna-loading"
-            wrapperClass="dna-wrapper"
+            wrapperclassName="dna-wrapper"
             wrapperStyle={{}}
           />
         </div>

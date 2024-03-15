@@ -15,7 +15,7 @@ const Skill = () => {
 
   return (
     <>
-      <div className="">
+      <div className="" id="skill-page">
         <div className="container">
           <div className="row text-start">
             <h2 className="fw-bolder">My Skills</h2>
@@ -49,7 +49,7 @@ const Skill = () => {
           </div>
           <div className="row">
             <div className="col-12 text-center mt-4">
-              <button type="button" className="workBtn">
+              <button type="button" className="btn btn-outline-warning">
                 Download CV
               </button>
             </div>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const AppHeader = () => {
   const [navSize, setnavSize] = useState("5rem");
   const [navColor, setnavColor] = useState("transparent");
+
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setnavColor("#252734") : setnavColor("transparent");
     window.scrollY > 10 ? setnavSize("5rem") : setnavSize("5rem");
@@ -15,6 +16,13 @@ const AppHeader = () => {
     };
   }, []);
 
+
+  const scrollToAbout = (id) => {
+    const aboutUsSection = document.getElementById(id);
+    if (aboutUsSection) {
+      aboutUsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <>
       <nav
@@ -27,9 +35,9 @@ const AppHeader = () => {
         }}
       >
         <div className="container">
-          <a className="navbar-brand fw-bold text-black" href="/home">
-            Coding Yaar
-          </a>
+          <Link className="navbar-brand fw-bold text-black" onClick={() => scrollToAbout('home')} >
+            Pawan Sharma
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -47,18 +55,18 @@ const AppHeader = () => {
                 <Link
                   className="nav-link active"
                   aria-current="page"
-                  to="/home"
+                  onClick={() => scrollToAbout('home')}
                 >
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/aboutUS">
+                <Link className="nav-link" to="#aboutUs" onClick={() => scrollToAbout('aboutUs')}>
                   About Me
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="#whatIdo" onClick={() => scrollToAbout('whatIdo')}>
                   What I Do?
                 </Link>
               </li>
@@ -74,7 +82,7 @@ const AppHeader = () => {
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="#contactMe" onClick={() => scrollToAbout('contactMe')} >
                   Contact Me
                 </Link>
               </li>
