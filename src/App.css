@@ -1,3 +1,8 @@
+.private-layout {
+  margin-right: 0;
+}
+
+
 img.sb-avatar__image {
   border-radius: 50rem !important;
   padding: 20px;
@@ -270,3 +275,16 @@ input {
   animation: btn-anim4 2s linear infinite;
   animation-delay:1.5s;
 }
+
+
+/* Login page */
+
+.login {
+  background: url("./assets/images/bgimage.png") no-repeat;
+
+  background-color: #f5df4e;
+  background-size: cover;
+  height: 100vh;
+}
+
+
