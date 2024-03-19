@@ -19,7 +19,6 @@ const Resume = () => {
       <div className="">
         <div className="container">
           <div className="text-center">
-            <span className="bg-warning ">CV</span>
           </div>
           <div className="row text-center">
             <h2 className="fw-bolder">A summary of My CV</h2>

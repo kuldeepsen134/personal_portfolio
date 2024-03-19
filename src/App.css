@@ -445,3 +445,7 @@ span.wow.heartBeat {
 
 
 /* COntact us page */
+ul.socialMedia li {
+  margin: 15px;
+  list-style: none;
+}

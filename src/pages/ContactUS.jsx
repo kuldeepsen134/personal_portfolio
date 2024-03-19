@@ -3,6 +3,13 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { createContactUs } from "../redux/slice/contactusSlice";
 
+import {
+  SlSocialLinkedin,
+  SlSocialInstagram,
+  SlSocialFacebook,
+} from "react-icons/sl";
+import { BsTwitterX } from "react-icons/bs";
+
 const ContactUS = () => {
   const dispatch = useDispatch();
 
@@ -24,9 +31,6 @@ const ContactUS = () => {
     },
   });
 
-
-
-
   return (
     <>
       <div className="contactUS" id="contactMe">
@@ -43,6 +47,23 @@ const ContactUS = () => {
               <p className="">30 Shacham street, Los Angeles, USA.</p>
               <span className="fw-bold">Call:</span>
               <span className="tel">(+060) 444 434 444</span>
+
+              <div className="d-flex">
+                <ul className="socialMedia d-flex m-4">
+                  <li>
+                    <SlSocialLinkedin />
+                  </li>
+                  <li>
+                    <SlSocialInstagram />
+                  </li>
+                  <li>
+                    <SlSocialFacebook />
+                  </li>
+                  <li>
+                    <BsTwitterX />
+                  </li>
+                </ul>
+              </div>
             </div>
             <div className="col-6 mt-4">
               <h2 className="fw-bold">Contact US </h2>

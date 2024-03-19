@@ -1,15 +1,11 @@
 import React from "react";
 import service from "../components/service";
 
-
 const Service = () => {
   return (
     <div className="services" id="whatIdo">
       <div className="container">
-        <div className="text-center pt-5 py-4">
-          <span className="bg-warning fs-4 ">What I Do?</span>
-        </div>
-        <div className="row text-center">
+        <div className="row text-center pt-2 py-4">
           <h2 className="fw-bolder">How I can help your next project</h2>
         </div>
 

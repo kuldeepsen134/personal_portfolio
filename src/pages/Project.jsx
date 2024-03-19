@@ -18,6 +18,9 @@ const Project = () => {
   return (
     <div className="projects" id="ourWork">
       <div className="container">
+        <div className="text-center pt-2 py-4">
+          <span className="fw-bolder fs-4">About Me </span>
+        </div>
         {loading ? (
           <div className="loading text-center">
             <DNA

@@ -15,11 +15,8 @@ const About = () => {
     return (
         <div className='about-me' id='aboutUs' >
             <div className='container'>
-                <div className='text-center mt-4'>
-                    <span className='bg-warning text-center fs-4'>About Me </span>
-                </div>
                 <div className='row  text-center'>
-                    <h2 className='fw-bolder my-4'>Know Me More</h2>
+                    <h2 className='fw-bolder'>Know Me More</h2>
                 </div>
                 <div className='row fs-4'>
                     <div className='col-8'>
