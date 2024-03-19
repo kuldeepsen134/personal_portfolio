@@ -47,9 +47,13 @@ const Skill = () => {
                 })}
             </div>
           </div>
-          <div className="row">
-            <div className="col-12 text-center mt-4">
-              <button type="button" className="btn btn-outline-warning">
+          <div className="row justify-content-center mt-4">
+            <div className="downloadCV col-2 text-center ">
+              <button
+                id="submit-btn"
+                className="downloadCV btn text-white rounded-0"
+                type="submit"
+              >
                 Download CV
               </button>
             </div>

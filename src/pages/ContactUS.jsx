@@ -19,7 +19,7 @@ const ContactUS = () => {
               <span className="tel">(+060) 444 434 444</span>
             </div>
             <div className="col-6 mt-4">
-              <h2 className="fw-bold">Contact US  </h2>
+              <h2 className="fw-bold">Contact US </h2>
               <form id="contact-form" className="form-border">
                 <div className="row g-4 ">
                   <div className="col-12">
@@ -58,16 +58,13 @@ const ContactUS = () => {
                       required=""
                     ></textarea>
                   </div>
-                  <div className="workBtn col-2 text-center text-lg-start ">
+                  <div className="workBtn col-2 text-center ">
                     <button
                       id="submit-btn"
-                      className="workBtn btn btn-dark rounded-0"
+                      className="workBtn btn text-white rounded-0"
                       type="submit"
                     >
-                      Send{" "}
-                      <span className="3">
-                        <i className="fas fa-arrow-right"></i>
-                      </span>
+                      Send
                     </button>
                   </div>
                 </div>

@@ -58,10 +58,10 @@ const Home = () => {
 
                     <ul className="d-flex ">
                       <li className="workBtn">
-                        <button type="button" className="btn btn-outline-warning"> View my Works</button>
+                        <button type="button" className="btn text-white"> View my Works</button>
                       </li>
                       <li className="workBtn">
-                        <button type="button" className="btn btn-outline-warning"  onClick={() => scrollToAbout('aboutUs')}>Contact Me</button>
+                        <button type="button" className="btn text-white"  onClick={() => scrollToAbout('aboutUs')}>Contact Me</button>
                       </li>
                     </ul>
                   </div>

@@ -35,7 +35,7 @@ const AppHeader = () => {
         }}
       >
         <div className="container">
-          <Link className="navbar-brand fw-bold text-black" onClick={() => scrollToAbout('home')} >
+          <Link className="navbar-brand-name fw-bold" onClick={() => scrollToAbout('home')} >
             Pawan Sharma
           </Link>
           <button

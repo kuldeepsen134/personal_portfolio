@@ -1,8 +1,7 @@
-body{
+body {
   margin: 0;
   padding: 0;
 }
-
 
 .private-layout {
   margin-right: 0;
@@ -39,8 +38,10 @@ img.sb-avatar__image {
 .navbar-brand {
   z-index: 1;
 }
-.navbar-brand {
+.navbar-brand-name {
+  text-decoration: none;
   font-size: 1.8em;
+  color: #ef7f07;
 }
 .navbar-toggler:focus {
   box-shadow: none;
@@ -50,6 +51,12 @@ img.sb-avatar__image {
   letter-spacing: 2px;
   color: #fff;
 }
+button.navbar-toggler{
+  background-color: #ef7f07;
+}
+
+
+
 .navbar-collapse .nav-link:hover,
 .navbar-collapse .nav-link.active {
   color: #f5df4e;
@@ -68,33 +75,81 @@ img.sb-avatar__image {
   opacity: 80%;
 }
 
-
-.hero-section{
-  background: url("./assets/images/techbg.png") no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 100vh; 
-  /* background-color: #05326200; */
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.hireme{
-  background: url("./assets/images/bgimage.webp") no-repeat;
+.hero-section {
+  height: 90vh;
+  width: 100vw;
+  background-image: linear-gradient(0deg, #08aeea 0%, #2af598 100%);
+  clip-path: ellipse(100% 55% at 48% 44%);
+}
+
+.services {
+  background-image: linear-gradient(
+    90deg,
+    rgba(91, 90, 93, 1) 0%,
+    rgba(242, 243, 245, 1) 36%,
+    rgba(69, 75, 77, 1) 90%
+  );
+  clip-path: ellipse(100% 55% at 48% 44%);
+}
+
+.projects {
+  background-image: linear-gradient(
+    90deg,
+    rgba(91, 90, 93, 1) 0%,
+    rgba(242, 243, 245, 1) 36%,
+    rgba(69, 75, 77, 1) 90%
+  );
+  clip-path: ellipse(100% 55% at 48% 44%);
+}
+
+.hero-section {
+  background-position: center;
+  color: #fff;
+  background-color: #020202d9;
+}
+
+.hireme {
+  clip-path: ellipse(100% 55% at 48% 44%);
   background-size: cover;
   height: 50vh;
 }
-
-
-.cardImage img{
-  width: 200px;
+button.hireMeBtn:hover {
+  background: #ef7f07;
 }
 
+button.hireMeBtn {
+  background: #ef7f07;
+}
 
+.card {
+  width: 95%;
+}
+
+.cardImage {
+  width: 100px;
+}
+
+.card-body {
+  width: 100%;
+}
 .workBtn {
   margin: 4px;
-  border-radius: 10px;
   list-style: none;
   color: #fff;
+  background-color: #ef7f07;
 }
+
+.downloadCV {
+  list-style: none;
+  color: #fff;
+  background-color: #ef7f07;
+}
+
 .progress-bar {
   width: 50%;
 }
@@ -166,16 +221,15 @@ input {
   transform: scale(1.2);
 }
 
-.about-me{
+.about-me {
   margin: 80px 0 80px 0;
 }
 
-
-.services{
+.services {
   margin: 80px 0 80px 0;
   padding-bottom: 60px;
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important;
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
 }
 
 span.wow.heartBeat {
@@ -184,7 +238,6 @@ span.wow.heartBeat {
   height: 120px;
   text-align: center;
 }
-
 
 .skill-form button.submitBtn {
   position: relative;
