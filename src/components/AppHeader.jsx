@@ -16,11 +16,10 @@ const AppHeader = () => {
     };
   }, []);
 
-
   const scrollToAbout = (id) => {
     const aboutUsSection = document.getElementById(id);
     if (aboutUsSection) {
-      aboutUsSection.scrollIntoView({ behavior: 'smooth' });
+      aboutUsSection.scrollIntoView({ behavior: "smooth" });
     }
   };
   return (
@@ -35,8 +34,11 @@ const AppHeader = () => {
         }}
       >
         <div className="container">
-          <Link className="navbar-brand-name fw-bold" onClick={() => scrollToAbout('home')} >
-            Pawan Sharma
+          <Link
+            className="navbar-brand-name fw-bold"
+            onClick={() => scrollToAbout("home")}
+          >
+            Parkhya solution
           </Link>
           <button
             className="navbar-toggler"
@@ -55,18 +57,26 @@ const AppHeader = () => {
                 <Link
                   className="nav-link active"
                   aria-current="page"
-                  onClick={() => scrollToAbout('home')}
+                  onClick={() => scrollToAbout("home")}
                 >
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="#aboutUs" onClick={() => scrollToAbout('aboutUs')}>
+                <Link
+                  className="nav-link"
+                  to="#aboutUs"
+                  onClick={() => scrollToAbout("aboutUs")}
+                >
                   About Me
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="#whatIdo" onClick={() => scrollToAbout('whatIdo')}>
+                <Link
+                  className="nav-link"
+                  to="#whatIdo"
+                  onClick={() => scrollToAbout("whatIdo")}
+                >
                   What I Do?
                 </Link>
               </li>
@@ -82,7 +92,11 @@ const AppHeader = () => {
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to="#contactMe" onClick={() => scrollToAbout('contactMe')} >
+                <Link
+                  className="nav-link"
+                  to="#contactMe"
+                  onClick={() => scrollToAbout("contactMe")}
+                >
                   Contact Me
                 </Link>
               </li>

@@ -16,7 +16,7 @@ const Project = () => {
   }, [dispatch]);
 
   return (
-    <div className="projects">
+    <div className="projects" id="ourWork">
       <div className="container">
         {loading ? (
           <div className="loading text-center">
@@ -30,10 +30,10 @@ const Project = () => {
             />
           </div>
         ) : (
-          <div className="row">
+          <div className="row animate__animated animate__zoomInUp pb-4">
             {data?.map((item, index) => (
-              <div className="col-md-4 mb-4" key={index}>
-                <div className="card  p-4 mx-2 h-100">
+              <div className="col-md-4 p-2" key={index}>
+                <div className="card  mx-2 h-100">
                   <div className="cardImage ">
                     {item.photoes.map((pic, j) => (
                       <img
@@ -45,7 +45,7 @@ const Project = () => {
                       />
                     ))}
                   </div>
-                  <div className="card-body">
+                  <div className="card-body p-4">
                     <h5 className="card-title">{item.title}</h5>
                     <p className="card-text">{item.description}</p>
                   </div>

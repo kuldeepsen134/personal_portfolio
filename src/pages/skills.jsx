@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { skillsList } from "../redux/slice/skillSlice";
-
+import cv from '../assets/cv/test.pdf'
 const Skill = () => {
   const {
     userSkillsData: { data },
@@ -12,6 +12,16 @@ const Skill = () => {
   useEffect(() => {
     dispatch(skillsList(""));
   }, [dispatch]);
+
+  const handleDownload = () => {
+    const pdfUrl = cv
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = 'Resume.pdf'; // Set the filename for the downloaded file
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <>
@@ -53,6 +63,7 @@ const Skill = () => {
                 id="submit-btn"
                 className="downloadCV btn text-white rounded-0"
                 type="submit"
+                onClick={handleDownload}
               >
                 Download CV
               </button>

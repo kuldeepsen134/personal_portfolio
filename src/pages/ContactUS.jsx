@@ -1,11 +1,37 @@
+import { useFormik } from "formik";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { createContactUs } from "../redux/slice/contactusSlice";
 
 const ContactUS = () => {
+  const dispatch = useDispatch();
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      mobile: "",
+      email: "",
+      message: "",
+    },
+    enableReinitialize: true,
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        await dispatch(createContactUs(values));
+        resetForm();
+      } catch (error) {
+        console.error(error.message);
+      }
+    },
+  });
+
+
+
+
   return (
     <>
       <div className="contactUS" id="contactMe">
         <div className="container">
-          <div className="row my-4">
+          <div className="row mt-4 pt-4 py-4">
             <div className="col-6 mt-4 ">
               <h2 className="fw-bold">Let's get in touch</h2>
               <p>
@@ -20,7 +46,12 @@ const ContactUS = () => {
             </div>
             <div className="col-6 mt-4">
               <h2 className="fw-bold">Contact US </h2>
-              <form id="contact-form" className="form-border">
+
+              <form
+                id="contact-form"
+                onSubmit={formik.handleSubmit}
+                className="form-border"
+              >
                 <div className="row g-4 ">
                   <div className="col-12">
                     <label className="form-label" htmlFor="name">
@@ -32,6 +63,8 @@ const ContactUS = () => {
                       type="text"
                       className="form-control py-1"
                       required=""
+                      value={formik.values.name}
+                      onChange={formik.handleChange}
                     />
                   </div>
                   <div className="col-12">
@@ -44,6 +77,22 @@ const ContactUS = () => {
                       type="email"
                       className="form-control py-1"
                       required=""
+                      value={formik.values.email}
+                      onChange={formik.handleChange}
+                    />
+                  </div>
+                  <div className="col-12">
+                    <label className="form-label" htmlFor="email">
+                      Your Mobile number:
+                    </label>
+                    <input
+                      id="mobile"
+                      name="mobile"
+                      type="mobile"
+                      className="form-control py-1"
+                      required=""
+                      value={formik.values.mobile}
+                      onChange={formik.handleChange}
                     />
                   </div>
                   <div className="col-12">
@@ -52,17 +101,17 @@ const ContactUS = () => {
                     </label>
                     <textarea
                       id="form-message"
-                      name="form-message"
+                      name="message"
                       className="form-control py-1"
-                      rows="4"
                       required=""
+                      value={formik.values.message}
+                      onChange={formik.handleChange}
                     ></textarea>
                   </div>
                   <div className="workBtn col-2 text-center ">
                     <button
-                      id="submit-btn"
-                      className="workBtn btn text-white rounded-0"
                       type="submit"
+                      className="workBtn btn text-white rounded-0"
                     >
                       Send
                     </button>

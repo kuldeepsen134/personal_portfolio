@@ -1,6 +1,15 @@
 import React from "react";
 
 const HireMe = () => {
+
+  const scrollToHireMe = (id) => {
+    const hireMe = document.getElementById(id);
+    if (hireMe) {
+      hireMe.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+
   return (
     <div className="hireme">
       <div className="container">
@@ -9,7 +18,11 @@ const HireMe = () => {
             Interested in working with me?
           </h2>
           <div className="text-center">
-            <button className="hireMeBtn btn rounded-0" type="submit">
+            <button
+              className="hireMeBtn btn rounded-0"
+              type="submit"
+              onClick={() => scrollToHireMe("contactMe")}
+            >
               Hire Me
             </button>
           </div>

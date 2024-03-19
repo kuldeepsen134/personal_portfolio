@@ -1,6 +1,7 @@
 import React from "react";
 import service from "../components/service";
 
+
 const Service = () => {
   return (
     <div className="services" id="whatIdo">
@@ -12,9 +13,9 @@ const Service = () => {
           <h2 className="fw-bolder">How I can help your next project</h2>
         </div>
 
-        <div className="row">
+        <div className="row animate__animated animate__zoomInUp">
           {service.map((item, index) => (
-            <div className="col-md-4 mb-4" key={index}>
+            <div className="  col-md-4 mb-4 " key={index}>
               <div className="card  p-4 mx-2 h-100">
                 <div className="cardImage ">
                   <img src={item.image} className="card-img-top" alt="..." />

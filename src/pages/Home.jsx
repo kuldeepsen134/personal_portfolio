@@ -25,9 +25,10 @@ const Home = () => {
   const scrollToAbout = (id) => {
     const aboutUsSection = document.getElementById(id);
     if (aboutUsSection) {
-      aboutUsSection.scrollIntoView({ behavior: 'smooth' });
+      aboutUsSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <>
       <AppHeader />
@@ -39,8 +40,9 @@ const Home = () => {
                 <div className="row py-5" key={i}>
                   <div className="col-lg-8 py-5 ps-lg-5">
                     <div>
-                      <h1 className="">HI, I'M {user?.full_name}</h1>
-                      <TypeAnimation
+                      <span className="">HI, I'M</span>
+                      <span>{user?.full_name}</span>
+                      {/* <TypeAnimation
                         className=""
                         sequence={[user.title, 1000, "developer", 1000]}
                         wrapper="span"
@@ -51,17 +53,29 @@ const Home = () => {
                           marginLeft: "80px",
                         }}
                         repeat={Infinity}
-                      />
+                      /> */}
 
                       <p className="fs-3 mt-4">{user?.aboutUs}</p>
                     </div>
 
                     <ul className="d-flex ">
                       <li className="workBtn">
-                        <button type="button" className="btn text-white"> View my Works</button>
+                        <button
+                          type="button"
+                          className="btn text-white"
+                          onClick={() => scrollToAbout("ourWork")}
+                        >
+                          View my Works
+                        </button>
                       </li>
                       <li className="workBtn">
-                        <button type="button" className="btn text-white"  onClick={() => scrollToAbout('aboutUs')}>Contact Me</button>
+                        <button
+                          type="button"
+                          className="btn text-white"
+                          onClick={() => scrollToAbout("contactMe")}
+                        >
+                          Contact Me
+                        </button>
                       </li>
                     </ul>
                   </div>

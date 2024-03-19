@@ -1,7 +1,20 @@
 body {
   margin: 0;
   padding: 0;
+  background: #212534;
+  top: 0;
+  bottom: 0;
 }
+/* 
+#root {
+  color: #fff;
+  background-image: linear-gradient(
+    90deg,
+    rgba(91, 90, 93, 1) 0%,
+    rgba(242, 243, 245, 1) 36%,
+    rgba(69, 75, 77, 1) 90%
+  );
+} */
 
 .private-layout {
   margin-right: 0;
@@ -51,11 +64,65 @@ img.sb-avatar__image {
   letter-spacing: 2px;
   color: #fff;
 }
-button.navbar-toggler{
+button.navbar-toggler {
   background-color: #ef7f07;
 }
 
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
 
+.card::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(
+    var(--rotate),
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
+  );
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
 
 .navbar-collapse .nav-link:hover,
 .navbar-collapse .nav-link.active {
@@ -163,7 +230,8 @@ button.hireMeBtn {
   color: black;
 }
 .contactUS {
-  background-color: #f5df4e;
+  background: #212534;
+  color: #fff;
 }
 
 .main-bg {
@@ -370,3 +438,10 @@ span.wow.heartBeat {
   background-size: cover;
   height: 100vh;
 }
+
+
+
+
+
+
+/* COntact us page */

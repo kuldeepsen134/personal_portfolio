@@ -5,6 +5,7 @@ import resumeSlice from './slice/resumeSlice.js';
 import skillSliceJsCopy from './slice/skillSlice.js';
 import serviceSlice from './slice/serviceSlice.js';
 import projectSlice from './slice/projectSlice.js';
+import contactusSlice from './slice/contactusSlice.js';
 
 
 
@@ -16,6 +17,7 @@ export const store = configureStore({
     user: userSlice,
     experience: resumeSlice,
     skill: skillSliceJsCopy,
-    service:serviceSlice,
+    service: serviceSlice,
+    contactUs: contactusSlice,
   }
 });

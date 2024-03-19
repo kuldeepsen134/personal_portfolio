@@ -29,7 +29,7 @@ const About = () => {
                         <p> {data && data[0]?.aboutUs} </p>
                     </div>
                     <div className='col-4 text-center '>
-                        <span className="experience rounded-circle wow heartBeat bg-warning" >22</span>
+                        <span className="experience rounded-circle wow heartBeat bg-warning" >2.5</span>
                         <p className='fs-2 fw-bold' >Years of Experiance</p>
                     </div>
                 </div>
