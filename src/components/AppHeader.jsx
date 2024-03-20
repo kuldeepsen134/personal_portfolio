@@ -38,7 +38,7 @@ const AppHeader = () => {
             className="navbar-brand-name fw-bold"
             onClick={() => scrollToAbout("home")}
           >
-            Pawan Sharma
+            Parkhya Solution{" "}
           </Link>
           <button
             className="navbar-toggler"

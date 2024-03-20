@@ -181,10 +181,10 @@ button.navbar-toggler {
 }
 
 .hireme {
-  clip-path: ellipse(100% 55% at 48% 44%);
-  background-size: cover;
-  height: 50vh;
+  background: url("./assets/images/intro-bg-2.jpg") no-repeat;
+  height: 456px;
 }
+
 button.hireMeBtn:hover {
   background: #ef7f07;
 }
@@ -218,8 +218,12 @@ button.hireMeBtn {
 }
 
 .progress-bar {
-  width: 50%;
+  /* width: 50%; */
+  /* background-color: #ef7f07 !important; */
 }
+
+
+
 
 .form-border .form-control {
   background-color: transparent;
@@ -439,13 +443,10 @@ span.wow.heartBeat {
   height: 100vh;
 }
 
-
-
-
-
-
 /* COntact us page */
 ul.socialMedia li {
   margin: 15px;
   list-style: none;
 }
+
+

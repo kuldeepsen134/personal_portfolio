@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { me, updateProfile } from "../redux/slice/userSlice";
 import { DNA } from "react-loader-spinner";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+// import * as Yup from "yup";
 
 function UserProfile() {
   const { userData, loading } = useSelector((state) => state.user);

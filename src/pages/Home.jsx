@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Avatar from "react-avatar";
-import { TypeAnimation } from "react-type-animation";
+// import { TypeAnimation } from "react-type-animation";
 import About from "./About";
 import Service from "./Service";
 import Resume from "./Resume";

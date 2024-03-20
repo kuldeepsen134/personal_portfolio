@@ -2,23 +2,22 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import instance from '../axios/axios'
 
 const initialState = {
-  userExperienceListData: {},
-  userExperienceData: {}
+  userEducationListData: {},
+  userEducationData: {}
 }
 
-// export const createUser = createAsyncThunk('user/create', async (params, { rejectWithValue }) => {
-//   try {
-//     return await instance.post('users', params)
-//   } catch (error) {
-//     return rejectWithValue(error.responce)
-//   }
-// })
 
-
-
-export const experience = createAsyncThunk('/experiences', async ({ rejectWithValue }) => {
+export const createExperience = createAsyncThunk('/create/educations', async ({ rejectWithValue }) => {
   try {
-    return await instance.get(`/experiences`,)
+    return await instance.post(`/educations`,)
+  } catch (error) {
+    return rejectWithValue(error.responce)
+  }
+})
+
+export const educationsList = createAsyncThunk('/educations/list', async ({ rejectWithValue }) => {
+  try {
+    return await instance.get(`/educations`,)
   } catch (error) {
     return rejectWithValue(error.responce)
   }
@@ -27,25 +26,39 @@ export const experience = createAsyncThunk('/experiences', async ({ rejectWithVa
 
 
 
-
 const userSlice = createSlice({
-  name: 'experience',
+  name: 'resume',
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
       
-      .addCase(experience.pending, (state) => {
+      .addCase(createExperience.pending, (state) => {
         state.loading = true;
-        state.userExperienceListData = {};
+        state.userEducationData = {};
       })
-      .addCase(experience.fulfilled, (state, action) => {
+      .addCase(createExperience.fulfilled, (state, action) => {
         state.loading = false;
-        state.userExperienceData = action.payload;
+        state.userEducationData = action.payload;
       })
-      .addCase(experience.rejected, (state) => {
+      .addCase(createExperience.rejected, (state) => {
         state.loading = false;
-        state.userExperienceData = {};
+        state.userEducationData = {};
+      })
+
+
+
+      .addCase(educationsList.pending, (state) => {
+        state.loading = true;
+        state.userEducationListData = {};
+      })
+      .addCase(educationsList.fulfilled, (state, action) => {
+        state.loading = false;
+        state.userEducationListData = action.payload;
+      })
+      .addCase(educationsList.rejected, (state) => {
+        state.loading = false;
+        state.userEducationListData = {};
       });
   },
 });

@@ -1,25 +1,27 @@
 import React from "react";
 
 const HireMe = () => {
-
   const scrollToHireMe = (id) => {
     const hireMe = document.getElementById(id);
     if (hireMe) {
-      hireMe.scrollIntoView({ behavior: 'smooth' });
+      hireMe.scrollIntoView({ behavior: "smooth" });
     }
   };
-
 
   return (
     <div className="hireme">
       <div className="container">
         <div className="row">
-          <h2 className="text-center fw-bolder">
-            Interested in working with me?
-          </h2>
-          <div className="text-center">
+          <div className="col-12 mt-4">
+            <p className="hiremeHeading text-center text-white fw-bolder fs-2">
+              Interested in working with me?
+            </p>
+          </div>
+        </div>
+        <div className="row mt-4">
+          <div className="col-12 mt-4  text-center">
             <button
-              className="hireMeBtn btn rounded-0"
+              className="hireMeBtn btn rounded-0 text-white"
               type="submit"
               onClick={() => scrollToHireMe("contactMe")}
             >
