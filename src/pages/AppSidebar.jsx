@@ -9,6 +9,8 @@ const AppSidebar = () => {
   return (
     <>
       <aside id="sidebar-wrapper">
+        <div className="container">
+
         <div className="sidebar-brand">
           <h2>Logo</h2>
         </div>
@@ -34,8 +36,8 @@ const AppSidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/app/contactUs">
-              <i className="fa fa-home"></i>Contact Us
+            <Link to="/app/enquiry">
+              <i className="fa fa-home"></i>Enquiry
             </Link>
           </li>
 
@@ -45,6 +47,7 @@ const AppSidebar = () => {
             </Link>
           </li>
         </ul>
+        </div>
       </aside>
     </>
   );

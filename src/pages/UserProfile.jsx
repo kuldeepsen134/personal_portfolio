@@ -36,13 +36,13 @@ function UserProfile() {
 
       Object.entries(values).forEach(([key, value]) => {
         // Check if the field is a file input and a new file is provided
-        if (key === 'pic' && value instanceof File) {
+        if (key === "pic" && value instanceof File) {
           formData.append(key, value); // Append the new file
-        } else if (value && key !== 'pic') {
+        } else if (value && key !== "pic") {
           formData.append(key, value); // Append other non-empty fields
         }
       });
-    
+
       try {
         await dispatch(updateProfile(formData));
       } catch (error) {
@@ -53,7 +53,7 @@ function UserProfile() {
 
   useEffect(() => {
     dispatch(me(""));
-  }, [dispatch, ]);
+  }, [dispatch]);
 
   return (
     <div className="container py-5" style={{ backgroundColor: "#eee" }}>
@@ -256,8 +256,9 @@ function UserProfile() {
                     className="form-control"
                     placeholder="Profile picture"
                     accept="image/*"
-                    onChange={(e) =>
-                      formik.setFieldValue("pic", e.currentTarget.files[0]) // Set the value for 'pic'
+                    onChange={
+                      (e) =>
+                        formik.setFieldValue("pic", e.currentTarget.files[0]) // Set the value for 'pic'
                     }
                   />
                   <label htmlFor="floatingPassword">Profile picture</label>

@@ -1,29 +1,100 @@
 import React, { useEffect, useState } from "react";
 import { BiEdit } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { skillsList, skillsListOne } from "../../redux/slice/skillSlice";
+import {
+  createSkills,
+  deleteSkill,
+  skillsList,
+  skillsListOne,
+  updateSkill,
+} from "../../redux/slice/skillSlice";
 import { IoMdAddCircleOutline } from "react-icons/io";
+import { AiOutlineDelete } from "react-icons/ai";
+
+import { useFormik } from "formik";
 
 const SkillsPage = () => {
-  const [skillID, setSkillID] = useState("");
+  const dispatch = useDispatch();
+  const [isUpdateSuccess, setIsUpdateSuccess] = useState(false);
+  const [isDeleteSuccess, setIsDeleteSuccess] = useState(false);
 
   const { userSkillsListData, userSkillsData } = useSelector(
     (state) => state.skill
   );
 
-  const dispatch = useDispatch();
+  const formik = useFormik({
+    initialValues: {
+      id: userSkillsData?._id || "",
+      title: userSkillsData?.title || "",
+      totalExp: userSkillsData?.totalExp || "",
+      pic: "",
+    },
+    enableReinitialize: true,
+
+    onSubmit: async (values) => {
+      const { id, ...formData } = values;
+      const formDataWithFile = new FormData();
+
+      Object.entries(formData).forEach(([key, value]) => {
+        if (key === "pic" && value instanceof File) {
+          formDataWithFile.append(key, value);
+        } else if (value && key !== "pic") {
+          formDataWithFile.append(key, value);
+        }
+      });
+
+      try {
+        await dispatch(updateSkill({ id, formData: formDataWithFile }));
+        setIsUpdateSuccess((prev) => !prev);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  });
+  // Add new skills
+  const addFormik = useFormik({
+    initialValues: {
+      title: "",
+      totalExp: "",
+      pic: "",
+    },
+    enableReinitialize: true,
+
+    onSubmit: async (values, { resetForm }) => {
+      const { id, ...formData } = values;
+      const formDataWithFile = new FormData();
+
+      Object.entries(formData).forEach(([key, value]) => {
+        if (key === "pic" && value instanceof File) {
+          formDataWithFile.append(key, value);
+        } else if (value && key !== "pic") {
+          formDataWithFile.append(key, value);
+        }
+      });
+
+      try {
+        await dispatch(createSkills(formDataWithFile));
+        setIsUpdateSuccess((prev) => !prev);
+        resetForm();
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  });
 
   useEffect(() => {
     dispatch(skillsList(""));
-  }, [dispatch]);
+  }, [dispatch, isUpdateSuccess, isDeleteSuccess]);
 
-  useEffect(() => {
-    if (skillID) {
-      dispatch(skillsListOne(skillID));
-    }
-  }, [dispatch, skillID]);
+  const getSkill = (skillID) => {
+    dispatch(skillsListOne(skillID));
+  };
+  const handleDelete = (id) => {
+    dispatch(deleteSkill(id));
 
-  console.log(userSkillsData);
+    setIsDeleteSuccess((prev) => !prev);
+  };
+
   return (
     <div className="container py-5">
       <div className="row">
@@ -41,39 +112,48 @@ const SkillsPage = () => {
       <div className="row">
         {userSkillsListData?.data?.map((item, i) => {
           return (
-            <>
-              <div className="col-3">
-                <div className="card">
-                  <div className="card-body">
-                    <div className="d-flex">
-                      <h5 className="card-title">{item.title}</h5>
-                      <img
-                        src={`${process.env.REACT_APP_API_BASE_URL}/${item.techLogo}`}
-                        alt={item.title}
-                      />
-                      {/* Button trigger modal */}
-                      <button
-                        type="button"
-                        className="btn btn-primary mx-4"
-                        data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop"
-                        onClick={() => {
-                          setSkillID(item._id);
-                        }}
-                      >
-                        <BiEdit />
-                      </button>
-                    </div>
-                    <p className="card-text">{item.totalExp}</p>
+            <div className="col-3" key={i}>
+              <div className="card">
+                <div className="card-body">
+                  <div className="d-flex">
+                    <h5 className="card-title">{item.title}</h5>
+                    <img
+                      src={`${process.env.REACT_APP_API_BASE_URL}${item.techLogo}`}
+                      alt={item.title}
+                      style={{ width: 50 }}
+                    />
+                    {/* Button trigger modal */}
+                    <button
+                      type="button"
+                      className="btn btn-primary mx-4"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
+                      onClick={() => {
+                        getSkill(item._id);
+                      }}
+                    >
+                      <BiEdit />
+                    </button>
+
+                    <button
+                      type="button"
+                      className="btn btn-danger mx-4"
+                      onClick={() => {
+                        handleDelete(item._id);
+                      }}
+                    >
+                      <AiOutlineDelete />
+                    </button>
                   </div>
+                  <p className="card-text">{item.totalExp}</p>
                 </div>
               </div>
-            </>
+            </div>
           );
         })}
       </div>
 
-      {/* Modal */}
+      {/* Edit Modal */}
       <div
         className="modal fade"
         id="staticBackdrop"
@@ -96,23 +176,28 @@ const SkillsPage = () => {
                 aria-label="Close"
               />
             </div>
-            <form className="skill-form">
+            {/* Edit Skill form */}
+            <form className="skill-form" onSubmit={formik.handleSubmit}>
               <div className="modal-body">
                 <div className="form-floating mb-3">
                   <input
                     type="text"
                     className="form-control"
                     placeholder="ID"
+                    value={userSkillsData?._id}
                     disabled
                   />
-                  <label htmlFor="floatingInput">ID:{123465465465}</label>
+                  <label htmlFor="floatingInput">ID</label>
                 </div>
 
                 <div className="form-floating mb-3">
                   <input
                     type="text"
                     className="form-control"
+                    name="title"
                     placeholder="title"
+                    onChange={formik.handleChange}
+                    value={formik.values.title}
                   />
                   <label htmlFor="floatingInput">Title</label>
                 </div>
@@ -121,7 +206,10 @@ const SkillsPage = () => {
                   <input
                     type="text"
                     className="form-control"
+                    name="totalExp"
                     placeholder="Total experience"
+                    onChange={formik.handleChange}
+                    value={formik.values.totalExp}
                   />
                   <label htmlFor="floatingPassword">Total experience</label>
                 </div>
@@ -129,9 +217,16 @@ const SkillsPage = () => {
                 <div className="form-floating  mb-3">
                   <input
                     type="file"
+                    name="pic"
                     className="form-control"
                     placeholder="Image"
+                    accept="image/*"
+                    onChange={
+                      (e) =>
+                        formik.setFieldValue("pic", e.currentTarget.files[0]) // Set the value for 'pic'
+                    }
                   />
+
                   <label htmlFor="floatingPassword">Image</label>
                 </div>
 
@@ -143,7 +238,7 @@ const SkillsPage = () => {
                   >
                     Cancel
                   </button>
-                  <button type="button" className="btn btn-primary">
+                  <button type="submit" className="btn btn-primary">
                     Save
                   </button>
                 </div>
@@ -175,13 +270,19 @@ const SkillsPage = () => {
                 aria-label="Close"
               />
             </div>
-            <form className="skill-form">
+
+            {/* Add new Skill form */}
+
+            <form className="skill-form" onSubmit={addFormik.handleSubmit}>
               <div className="modal-body">
                 <div className="form-floating mb-3">
                   <input
                     type="text"
                     className="form-control"
+                    name="title"
                     placeholder="title"
+                    onChange={addFormik.handleChange}
+                    value={addFormik.values.title}
                   />
                   <label htmlFor="floatingInput">Title</label>
                 </div>
@@ -191,6 +292,9 @@ const SkillsPage = () => {
                     type="text"
                     className="form-control"
                     placeholder="Total experience"
+                    name="totalExp"
+                    onChange={addFormik.handleChange}
+                    value={addFormik.values.totalExp}
                   />
                   <label htmlFor="floatingPassword">Total experience</label>
                 </div>
@@ -198,8 +302,14 @@ const SkillsPage = () => {
                 <div className="form-floating  mb-3">
                   <input
                     type="file"
+                    name="pic"
                     className="form-control"
-                    placeholder="Image"
+                    placeholder="Profile picture"
+                    accept="image/*"
+                    onChange={
+                      (e) =>
+                        addFormik.setFieldValue("pic", e.currentTarget.files[0]) // Set the value for 'pic'
+                    }
                   />
                   <label htmlFor="floatingPassword">Image</label>
                 </div>
@@ -212,7 +322,7 @@ const SkillsPage = () => {
                   >
                     Cancel
                   </button>
-                  <button type="button" className="btn btn-primary">
+                  <button type="submit" className="btn btn-primary">
                     Submit
                   </button>
                 </div>
