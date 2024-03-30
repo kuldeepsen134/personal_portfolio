@@ -11,6 +11,7 @@ import { userAbout } from "../redux/slice/userSlice";
 import Project from "./Project";
 import AppHeader from "../components/AppHeader";
 import HireMe from "./HireMe";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const {
@@ -102,6 +103,7 @@ const Home = () => {
       <Resume />
       <Skill />
       <ContactUS />
+      <Footer/>
     </>
   );
 };

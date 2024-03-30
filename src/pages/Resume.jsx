@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { educationsList,  } from "../redux/slice/resumeSlice.js";
+import { educationsList, } from "../redux/slice/resumeSlice.js";
 import { experienceList } from "../redux/slice/experience.js";
 
 const Resume = () => {
-  const {
-    userEducationListData,
-  } = useSelector((state) => state.resume);
-  
+  const { userEducationListData } = useSelector((state) => state.resume);
+
   const { experienceListData } = useSelector((state) => state.experience);
 
   const dispatch = useDispatch();

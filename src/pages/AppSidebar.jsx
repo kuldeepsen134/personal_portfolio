@@ -36,6 +36,16 @@ const AppSidebar = () => {
             </Link>
           </li>
           <li>
+            <Link to="/app/experience">
+              <i className="fa fa-home"></i>Experience
+            </Link>
+          </li>
+          <li>
+            <Link to="/app/education">
+              <i className="fa fa-home"></i>Education
+            </Link>
+          </li>
+          <li>
             <Link to="/app/enquiry">
               <i className="fa fa-home"></i>Enquiry
             </Link>

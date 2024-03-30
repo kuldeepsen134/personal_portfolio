@@ -20,10 +20,10 @@ body {
   margin-right: 0;
 }
 
-img.sb-avatar__image {
-  border-radius: 50rem !important;
-  padding: 20px;
-}
+/* img.sb-avatar__image { */
+  /* border-radius: 50rem !important; */
+  /* padding: 20px; */
+/* } */
 
 .sb-avatar.sb-avatar--src {
   display: inline-block;
@@ -54,7 +54,9 @@ img.sb-avatar__image {
 .navbar-brand-name {
   text-decoration: none;
   font-size: 1.8em;
-  color: #ef7f07;
+  /* color: #ef7f07; */
+  color: #ffff;
+
 }
 .navbar-toggler:focus {
   box-shadow: none;
@@ -233,7 +235,7 @@ button.hireMeBtn {
   padding-left: 0px !important;
   color: black;
 }
-.contactUS {
+.skillPage {
   background: #212534;
   color: #fff;
 }
@@ -444,8 +446,8 @@ span.wow.heartBeat {
 }
 
 /* COntact us page */
-ul.socialMedia li {
-  margin: 15px;
+ul.socialMedia {
+  gap: 30px;
   list-style: none;
 }
 

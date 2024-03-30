@@ -3,9 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { skillsList } from "../redux/slice/skillSlice";
 import cv from "../assets/cv/test.pdf";
 const Skill = () => {
-  const {
-    userSkillsData: { data },
-  } = useSelector((state) => state.skill);
+  const { userSkillsListData } = useSelector((state) => state.skill);
 
   const dispatch = useDispatch();
 
@@ -24,16 +22,16 @@ const Skill = () => {
   };
 
   const progress = 10;
-  const percentageProgress = (progress * 10) 
-
+  const percentageProgress = (progress * 10)
+  console.log('data??????', userSkillsListData);
   return (
     <>
-      <div className="" id="skill-page">
+      <div className="skillPage" id="skill-page">
         <div className="container">
           <div className="row text-start mt-4 my-4">
             <p className="fw-bolder fs-2 my-4">My Skills</p>
             <div className="row">
-              {data?.map((item, i) => {
+              {userSkillsListData.data?.map((item, i) => {
                 return (
                   <div className="col-6 " key={i}>
                     <p className="fw-bolder my-2">{item?.title}</p>
@@ -55,7 +53,7 @@ const Skill = () => {
                           backgroundColor: progress < 5 ? "red" : "#ef7f07",
                         }}
                       >
-                       {percentageProgress}%
+                        {percentageProgress}%
                       </div>
                     </div>
                   </div>
@@ -63,7 +61,7 @@ const Skill = () => {
               })}
             </div>
           </div>
-          <div className="row justify-content-center mt-4">
+          <div className="row justify-content-center mt-4" id="resume">
             <div className="downloadCV col-2 text-center  my-4">
               <button
                 id="submit-btn"

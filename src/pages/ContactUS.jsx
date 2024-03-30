@@ -44,26 +44,10 @@ const ContactUS = () => {
                 our first catch-up.
               </p>
               <span className="fw-bold">Living In:</span>
-              <p className="">30 Shacham street, Los Angeles, USA.</p>
-              <span className="fw-bold">Call:</span>
-              <span className="tel">(+060) 444 434 444</span>
+              <p className="">Nanda nagar, Indore (M.P.) India</p>
+              <span className="fw-bold">Call:{' '}+91- </span>
+              <a href="tel:+7772972720">7772972720</a>
 
-              <div className="d-flex">
-                <ul className="socialMedia d-flex m-4">
-                  <li>
-                    <SlSocialLinkedin />
-                  </li>
-                  <li>
-                    <SlSocialInstagram />
-                  </li>
-                  <li>
-                    <SlSocialFacebook />
-                  </li>
-                  <li>
-                    <BsTwitterX />
-                  </li>
-                </ul>
-              </div>
             </div>
             <div className="col-6 mt-4">
               <h2 className="fw-bold">Contact US </h2>

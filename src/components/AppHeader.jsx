@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 const AppHeader = () => {
   const [navSize, setnavSize] = useState("5rem");
   const [navColor, setnavColor] = useState("transparent");
+  const [isOpen, setIsOpen] = useState(true)
+  const [isDefault, setIsDefault] = useState(false)
+
 
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setnavColor("#252734") : setnavColor("transparent");
@@ -20,8 +23,18 @@ const AppHeader = () => {
     const aboutUsSection = document.getElementById(id);
     if (aboutUsSection) {
       aboutUsSection.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(!isOpen)
     }
   };
+
+
+  const handleStateWithClick = () => {
+    setIsDefault(true)
+    setIsOpen(!isOpen)
+
+  }
+
+
   return (
     <>
       <nav
@@ -36,9 +49,9 @@ const AppHeader = () => {
         <div className="container">
           <Link
             className="navbar-brand-name fw-bold"
-            onClick={() => scrollToAbout("home")}
+            to={'/'}
           >
-            Parkhya Solution{" "}
+            <span style={{ color: "#ef7f07" }}>K</span>uldeep <span style={{ color: "#ef7f07" }}>S</span>en
           </Link>
           <button
             className="navbar-toggler"
@@ -48,10 +61,12 @@ const AppHeader = () => {
             aria-controls="navbarNav5"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            onClick={() => handleStateWithClick()}
           >
             <span className="navbar-toggler-icon" />
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav5">
+          <div className={!isDefault ? "collapse navbar-collapse" : isOpen ? "collapse navbar-collapse" : "collapse navbar-collapse show"}
+            id="navbarNav5">
             <ul className="navbar-nav text-center">
               <li className="nav-item">
                 <Link
@@ -81,10 +96,13 @@ const AppHeader = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <span className="nav-link">Resume</span>
+                <Link className="nav-link" onClick={() => scrollToAbout("skill-page")}>Resume</Link>
               </li>
               <li className="nav-item">
-                <span className="nav-link">Portfolio</span>
+                <Link className="nav-link"
+                  onClick={() => scrollToAbout("ourWork")}
+
+                >Portfolio</Link>
               </li>
 
               <li className="nav-item">

@@ -1,4 +1,12 @@
 import React from "react";
+import {
+  SlSocialLinkedin,
+  SlSocialInstagram,
+  SlSocialFacebook,
+} from "react-icons/sl";
+import { BsTwitterX } from "react-icons/bs";
+
+
 
 const Footer = () => {
   return (
@@ -8,13 +16,21 @@ const Footer = () => {
           <div className="col-md-6">
             <p>&copy; 2024 Your Company. All rights reserved.</p>
           </div>
-          <div className="col-md-6 text-end">
-            <ul className="list-inline">
-              <li className="list-inline-item">
-                <a href="#">Privacy Policy</a>
+    
+
+          <div className="col-md-6 ">
+            <ul className="socialMedia d-flex">
+              <li>
+                <SlSocialLinkedin />
               </li>
-              <li className="list-inline-item">
-                <a href="#">Terms of Use</a>
+              <li>
+                <SlSocialInstagram />
+              </li>
+              <li>
+                <SlSocialFacebook />
+              </li>
+              <li>
+                <BsTwitterX />
               </li>
             </ul>
           </div>

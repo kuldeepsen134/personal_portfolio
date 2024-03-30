@@ -18,9 +18,7 @@ const SkillsPage = () => {
   const [isUpdateSuccess, setIsUpdateSuccess] = useState(false);
   const [isDeleteSuccess, setIsDeleteSuccess] = useState(false);
 
-  const { userSkillsListData, userSkillsData } = useSelector(
-    (state) => state.skill
-  );
+  const { userSkillsListData, userSkillsData } = useSelector((state) => state.skill);
 
   const formik = useFormik({
     initialValues: {
@@ -89,9 +87,9 @@ const SkillsPage = () => {
   const getSkill = (skillID) => {
     dispatch(skillsListOne(skillID));
   };
+
   const handleDelete = (id) => {
     dispatch(deleteSkill(id));
-
     setIsDeleteSuccess((prev) => !prev);
   };
 
