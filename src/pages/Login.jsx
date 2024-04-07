@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { useDispatch,  } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { login } from "../redux/slice/authSlice";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const Login = () => {
-  const [show, ] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
-
-  // const { loading } = useSelector((state) => state.auth);
 
   const navigate = useNavigate();
 
@@ -20,17 +20,15 @@ const Login = () => {
       password: "",
     },
     enableReinitialize: true,
-
     validationSchema: Yup.object({
       email: Yup.string()
-        .email("string.emailFormat")
-        .required("Email required"),
+        .email("Invalid email format")
+        .required("Email is required"),
       password: Yup.string()
-        .required("Password required")
-        .matches(/^(?=.*)(?=.{6,})/, "string.passwordLength"),
+        .required("Password is required")
+        .min(6, "Password must be at least 6 characters"),
     }),
-
-    onSubmit:async (values) => {
+    onSubmit: async (values) => {
       try {
         await dispatch(login(values));
         navigate('/app/admindashboard');
@@ -41,55 +39,70 @@ const Login = () => {
   });
 
   return (
-    <div className="login">
+    <div className="login d-flex justify-content-center align-items-center">
       <div className="container">
-        <div className="row justify-content-center p-4">
+        <div className="row justify-content-center">
           <div className="col-lg-4 col-md-6 col-sm-6">
             <div className="card shadow mt-4">
-              <div className="card-title text-center border-bottom" >
-                <h2 className="p-3">Login</h2>
-              </div>
               <div className="card-body">
+                <h2 className="card-title text-center mb-4">Login</h2>
                 <form onSubmit={formik.handleSubmit}>
-                  <div className="mb-4">
-                    <label htmlFor="username" className="form-label">
-                      Username/Email
+                  <div className="mb-3">
+                    <label htmlFor="email" className="form-label">
+                      Email
                     </label>
                     <input
-                      className="form-control"
+                      className={`form-control ${
+                        formik.errors.email && formik.touched.email
+                          ? "is-invalid"
+                          : ""
+                      }`}
                       type="email"
-                      placeholder="Email"
+                      id="email"
+                      placeholder="Enter your email"
                       name="email"
                       value={formik.values.email}
                       onChange={formik.handleChange}
                     />
-                    {formik.errors.email && formik.touched.email ? (
-                      <span className="text-red-500">
+                    {formik.errors.email && formik.touched.email && (
+                      <div className="invalid-feedback">
                         {formik.errors.email}
-                      </span>
-                    ) : (
-                      ""
+                      </div>
                     )}
                   </div>
-                  <div className="mb-4">
+                  <div className="mb-3 position-relative">
                     <label htmlFor="password" className="form-label">
                       Password
                     </label>
                     <input
-                      className="form-control text-sm rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-purple-400"
+                      className={`form-control ${
+                        formik.errors.password && formik.touched.password
+                          ? "is-invalid"
+                          : ""
+                      }`}
+                      type={showPassword ? "text" : "password"}
+                      id="password"
+                      placeholder="Enter your password"
                       name="password"
-                      placeholder="Password"
-                      type={show ? "text" : "password"}
-                      onChange={formik.handleChange}
                       value={formik.values.password}
+                      onChange={formik.handleChange}
                     />
-                  </div>
-
-                  <div className="d-grid">
-                    <button type="submit" className="">
-                      Login
+                    <button
+                      type="button"
+                      className="btn show-password-btn"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
                     </button>
+                    {formik.errors.password && formik.touched.password && (
+                      <div className="invalid-feedback">
+                        {formik.errors.password}
+                      </div>
+                    )}
                   </div>
+                  <button type="submit" className="btn btn-primary w-100">
+                    Login
+                  </button>
                 </form>
               </div>
             </div>

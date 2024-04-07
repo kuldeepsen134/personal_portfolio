@@ -144,8 +144,6 @@ const ProjectPage = () => {
     }
   };
 
-  console.log("projectData>>>>>>>>>>>>", projectData);
-
   return (
     <div className="project">
       <div className="container">

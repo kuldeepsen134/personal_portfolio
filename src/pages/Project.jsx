@@ -40,7 +40,7 @@ const Project = () => {
               <div className="col-md-4 p-2" key={i}>
                 <div className="card  mx-2 h-100">
                   <div className="cardImage ">
-                    {item.photoes.map((pic, j) => (
+                    {item?.photoes?.map((pic, j) => (
                       <img
                         src={`${process.env.REACT_APP_API_BASE_URL}${pic}`}
                         className="card-img-top"

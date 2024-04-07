@@ -40,23 +40,10 @@ const Home = () => {
               return (
                 <div className="row py-5" key={i}>
                   <div className="col-lg-8 py-5 ps-lg-5">
+                      <spam className="fs-1 ">Hi There, I Am </spam>
+                      <spam className="fs-1  fw-bold">{user?.full_name} </spam>
                     <div>
-                      <span className="">HI, I'M</span>
-                      <span>{user?.full_name}</span>
-                      {/* <TypeAnimation
-                        className=""
-                        sequence={[user.title, 1000, "developer", 1000]}
-                        wrapper="span"
-                        speed={40}
-                        style={{
-                          fontSize: "3em",
-                          display: "inline-block",
-                          marginLeft: "80px",
-                        }}
-                        repeat={Infinity}
-                      /> */}
-
-                      <p className="fs-3 mt-4">{user?.aboutUs}</p>
+                      <p className="fs-3 lh-lg" style={{ color: "#ef7f07" }}>{user?.title} </p >
                     </div>
 
                     <ul className="d-flex ">
@@ -103,7 +90,7 @@ const Home = () => {
       <Resume />
       <Skill />
       <ContactUS />
-      <Footer/>
+      <Footer />
     </>
   );
 };

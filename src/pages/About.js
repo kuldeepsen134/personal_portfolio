@@ -26,27 +26,8 @@ const About = () => {
                         <p> {data && data[0]?.aboutUs} </p>
                     </div>
                     <div className='col-4 text-center '>
-                        <span className="experience rounded-circle wow heartBeat bg-warning" >5.5</span>
+                        <span className="experience rounded-circle wow heartBeat bg-warning" >{data && data[0]?.totalExp}</span>
                         <p className='fs-2 fw-bold' >Years of Experiance</p>
-                    </div>
-                </div>
-
-                <div className='row'>
-                    <div className='col-3'>
-                        <span className='fs-5 fw-lighter'>Name:</span>
-                        <p className='fw-bold'>{data && data[0]?.full_name}</p>
-                    </div>
-                    <div className='col-3'>
-                        <span className='fs-5 fw-lighter'>Email:</span>
-                        <p className='fw-bold'>{data && data[0]?.email}</p>
-                    </div>
-                    <div className='col-3'>
-                        <span className='fs-5 fw-lighter'>Mobile:</span>
-                        <p className='fw-bold'> {data && data[0]?.mobile}</p>
-                    </div>
-                    <div className='col-3'>
-                        <span className='fs-5 fw-lighter'>Date of birth:</span>
-                        <p className='fw-bold'>11 November, 1987</p>
                     </div>
                 </div>
             </div>

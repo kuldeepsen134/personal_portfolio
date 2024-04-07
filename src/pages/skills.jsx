@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { skillsList } from "../redux/slice/skillSlice";
-import cv from "../assets/cv/test.pdf";
+import cv from "../assets/cv/kuldeepsen2023.pdf";
+
 const Skill = () => {
   const { userSkillsListData } = useSelector((state) => state.skill);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -13,17 +13,13 @@ const Skill = () => {
 
   const handleDownload = () => {
     const pdfUrl = cv;
-    const link = document.createElement("a");
-    link.href = pdfUrl;
-    link.download = "Resume.pdf"; // Set the filename for the downloaded file
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Open the PDF in a new tab/window instead of downloading it
+    window.open(pdfUrl, "_blank");
   };
 
   const progress = 10;
-  const percentageProgress = (progress * 10)
-  console.log('data??????', userSkillsListData);
+  const percentageProgress = progress * 10;
+
   return (
     <>
       <div className="skillPage" id="skill-page">

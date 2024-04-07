@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-6">
-            <p>&copy; 2024 Your Company. All rights reserved.</p>
+            <p>&copy;{(new Date().getFullYear())} Kuldeep sen. All rights reserved.</p>
           </div>
     
 

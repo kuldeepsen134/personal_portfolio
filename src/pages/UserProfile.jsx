@@ -19,6 +19,10 @@ function UserProfile() {
       email: "",
       mobile: "",
       pic: "",
+      address: "",
+      city: "",
+      state: "",
+      totalExp: ''
     },
     enableReinitialize: true,
 
@@ -79,10 +83,11 @@ function UserProfile() {
                   className="rounded-circle img-fluid"
                   style={{ width: 150 }}
                 />
-                <h5 className="my-3">{userData?.full_name}</h5>
-                <p className="text-muted mb-1">{userData?.title}</p>
-                <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
-
+                <h5 className="">{userData?.full_name}</h5>
+                <p className="text-muted ">{userData?.title}</p>
+                <span className="text-muted ">{userData?.address}</span>
+                <span className="text-muted ">{userData?.city} </span>
+                <span className="text-muted ">{userData?.state}</span>
                 <button
                   type="button"
                   className="btn btn-primary"
@@ -116,7 +121,6 @@ function UserProfile() {
                   </div>
                 </div>
                 <hr />
-                <hr />
                 <div className="row">
                   <div className="col-sm-3">
                     <p className="mb-0">Mobile</p>
@@ -131,7 +135,36 @@ function UserProfile() {
                     <p className="mb-0">Address</p>
                   </div>
                   <div className="col-sm-9">
-                    <p className="text-muted mb-0">{userData?.mobile}</p>
+                    <p className="text-muted mb-0">{userData?.address}</p>
+                  </div>
+                </div>
+                <hr />
+                <div className="row">
+                  <div className="col-sm-3">
+                    <p className="mb-0">City</p>
+                  </div>
+                  <div className="col-sm-9">
+                    <p className="text-muted mb-0">{userData?.city}</p>
+                  </div>
+                </div>
+                <hr />
+                <div className="row">
+                  <div className="col-sm-3">
+                    <p className="mb-0">State</p>
+                  </div>
+                  <div className="col-sm-9">
+                    <p className="text-muted mb-0">{userData?.state}</p>
+                  </div>
+                </div>
+
+
+                <hr />
+                <div className="row">
+                  <div className="col-sm-3">
+                    <p className="mb-0">Over all experience</p>
+                  </div>
+                  <div className="col-sm-9">
+                    <p className="text-muted mb-0">{userData?.totalExp}</p>
                   </div>
                 </div>
 
@@ -229,6 +262,17 @@ function UserProfile() {
                   <input
                     type="text"
                     className="form-control"
+                    placeholder="Total Experience"
+                    name="totalExp"
+                    onChange={formik.handleChange}
+                    value={formik.values.totalExp}
+                  />
+                  <label htmlFor="floatingPassword">Total Experience</label>
+                </div>
+                <div className="form-floating  mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
                     placeholder="Mobile"
                     name="mobile"
                     onChange={formik.handleChange}
@@ -248,6 +292,31 @@ function UserProfile() {
                   />
                   <label htmlFor="floatingPassword">Address</label>
                 </div>
+                <div className="form-floating  mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="City"
+                    name="city"
+                    onChange={formik.handleChange}
+                    value={formik.values.city}
+                  />
+                  <label htmlFor="floatingPassword">City</label>
+                </div>
+
+                <div className="form-floating  mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="State"
+                    name="state"
+                    onChange={formik.handleChange}
+                    value={formik.values.state}
+                  />
+                  <label htmlFor="floatingPassword">State</label>
+                </div>
+
+
 
                 <div className="form-floating  mb-3">
                   <input

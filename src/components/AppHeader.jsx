@@ -48,7 +48,7 @@ const AppHeader = () => {
       >
         <div className="container">
           <Link
-            className="navbar-brand-name fw-bold"
+            className="navbar-brand-name fw-bold "
             to={'/'}
           >
             <span style={{ color: "#ef7f07" }}>K</span>uldeep <span style={{ color: "#ef7f07" }}>S</span>en
