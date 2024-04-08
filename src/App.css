@@ -110,10 +110,19 @@ button.navbar-toggler {
 }
 
 .hero-section {
-  height: 90vh;
-  width: 100vw;
+  height: 100vh;
+  /* width: 100vw; */
   background-image: linear-gradient(0deg, #08aeea 0%, #2af598 100%);
-  clip-path: ellipse(100% 55% at 48% 44%);
+  /* clip-path: ellipse(100% 55% at 48% 44%); */
+}
+
+
+.hero-section .avtar-img {
+  height: 100vh;
+}
+
+.hero-section .avtar-img img {
+  height: 100%;
 }
 
 .services {
@@ -391,4 +400,13 @@ span.wow.heartBeat {
 ul.socialMedia {
   gap: 30px;
   list-style: none;
+}
+
+#whatIdo .card .card-body .card-img {
+  height: 250px;
+}
+
+#whatIdo .card .card-body img {
+  height: 100%;
+  max-width: 100%;
 }
