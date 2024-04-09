@@ -12,8 +12,6 @@ import Project from "./Project";
 import AppHeader from "../components/AppHeader";
 import HireMe from "./HireMe";
 import Footer from "../components/Footer";
-import mainImage from "../assets/images/main-img.png";
-
 const Home = () => {
   const {
     userData: { data },
