@@ -10,21 +10,22 @@ const Service = () => {
           <h2 className="fw-bolder">How I can help your next project</h2>
         </div>
 
-        <div className="row animate__animated animate__zoomInUp">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
           {service.map((item, index) => (
-            <div className="col-md-4 mb-2" key={index}>
-              <div className="card p-0 mx-2">
-                <div className="cardImage">
+            <div className="col" key={index}>
+              <div className="card h-100">
+                <div className="card-header">
                   <span className="m-4 text-muted">SERVICES</span>
-                  <img
-                    src={item.image}
-                    className="card-img-top"
-                    alt="..."
-                    style={{ height: "200px" }} // Adjust the height as needed
-                  />
                 </div>
-                <div className="card-body d-flex flex-column"> {/* Use flexbox */}
-                  <h5 className="card-title flex-grow-1">{item.title}</h5> {/* Make the title expand */}
+                <div className="card-body"> {/* Use flexbox */}
+                  <div className="card-img">
+                    <img
+                      src={item.image}
+                      className="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                  <h5 className="card-title">{item.title}</h5> {/* Make the title expand */}
                   <p className="card-text">{item.description}</p>
                 </div>
               </div>

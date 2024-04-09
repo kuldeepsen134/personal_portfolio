@@ -12,7 +12,6 @@ import Project from "./Project";
 import AppHeader from "../components/AppHeader";
 import HireMe from "./HireMe";
 import Footer from "../components/Footer";
-
 const Home = () => {
   const {
     userData: { data },
@@ -38,10 +37,10 @@ const Home = () => {
           {data &&
             data?.map((user, i) => {
               return (
-                <div className="row py-5" key={i}>
-                  <div className="col-lg-8 py-5 ps-lg-5">
-                      <spam className="fs-1 ">Hi There, I Am </spam>
-                      <spam className="fs-1  fw-bold">{user?.full_name} </spam>
+                <div className="row align-items-center vh-100" key={i}>
+                  <div className="col-lg-7 py-5 ps-lg-5">
+                    <h1>Hi There, I Am</h1>
+                    <h1>{user?.full_name} </h1>
                     <div>
                       <p className="fs-3 lh-lg" style={{ color: "#ef7f07" }}>{user?.title} </p >
                     </div>
@@ -67,8 +66,8 @@ const Home = () => {
                       </li>
                     </ul>
                   </div>
-                  <div className="col-lg-4  py-5 ps-lg-5">
-                    <Avatar
+                  <div className="col-lg-5">
+                    {/* <Avatar
                       name="avtar"
                       src={`${process.env.REACT_APP_API_BASE_URL}${user?.profile}`}
                       size="300"
@@ -76,7 +75,10 @@ const Home = () => {
                         border: "5px solid white",
                       }}
                       round={true}
-                    />
+                    /> */}
+                    <div className="avtar-img">
+                      <img  src={`${process.env.REACT_APP_API_BASE_URL}${user?.profile}`} />
+                    </div>
                   </div>
                 </div>
               );
