@@ -67,17 +67,8 @@ const Home = () => {
                     </ul>
                   </div>
                   <div className="col-lg-5">
-                    {/* <Avatar
-                      name="avtar"
-                      src={`${process.env.REACT_APP_API_BASE_URL}${user?.profile}`}
-                      size="300"
-                      style={{
-                        border: "5px solid white",
-                      }}
-                      round={true}
-                    /> */}
                     <div className="avtar-img">
-                      <img  src={`${process.env.REACT_APP_API_BASE_URL}${user?.profile}`} />
+                      <img  src={user?.profile} />
                     </div>
                   </div>
                 </div>
