@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { me, updateProfile } from "../redux/slice/userSlice";
 import { DNA } from "react-loader-spinner";
 import { useFormik } from "formik";
-// import * as Yup from "yup";
 
 function UserProfile() {
   const { userData, loading } = useSelector((state) => state.user);
@@ -13,28 +12,18 @@ function UserProfile() {
 
   const formik = useFormik({
     initialValues: {
-      full_name: "",
-      title: "",
-      aboutUs: "",
-      email: "",
-      mobile: "",
-      pic: "",
-      address: "",
-      city: "",
-      state: "",
-      totalExp: "",
+      full_name: userData?.full_name || "",
+      title: userData?.title || "",
+      aboutUs: userData?.aboutUs || "",
+      email: userData?.email || "",
+      mobile: userData?.mobile || "",
+      pic: userData?.profile || "",
+      address: userData?.address || "",
+      city: userData?.city || "",
+      state: userData?.state || "",
+      totalExp: userData?.totalExp || "",
     },
     enableReinitialize: true,
-
-    // validationSchema: Yup.object({
-    //   email: Yup.string()
-    //     .email("string.emailFormat")
-    //     .required("Email required"),
-    //   password: Yup.string()
-    //     .required("Password required")
-    //     .matches(/^(?=.*)(?=.{6,})/, "string.passwordLength"),
-    // }),
-
     onSubmit: async (values) => {
       const formData = new FormData();
 
@@ -56,7 +45,7 @@ function UserProfile() {
   });
 
   useEffect(() => {
-    dispatch(me(""));
+    dispatch(me());
   }, [dispatch]);
 
   return (

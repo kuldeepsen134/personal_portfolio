@@ -36,7 +36,7 @@ export const updateProfile = createAsyncThunk('/users/profile', async (data, { r
 
 
 
-export const me = createAsyncThunk('/me', async (id, { rejectWithValue }) => {
+export const me = createAsyncThunk('/me', async (data, { rejectWithValue }) => {
   try {
     return await instance.get(`me`,)
   } catch (error) {

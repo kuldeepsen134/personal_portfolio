@@ -39,8 +39,7 @@ const Home = () => {
               return (
                 <div className="row align-items-center vh-100" key={i}>
                   <div className="col-lg-7 py-5 ps-lg-5">
-                    <h1>Hi There, I Am</h1>
-                    <h1>{user?.full_name} </h1>
+                    <h1>Hi There, I Am {user?.full_name}</h1>
                     <div>
                       <p className="fs-3 lh-lg" style={{ color: "#ef7f07" }}>{user?.title} </p >
                     </div>

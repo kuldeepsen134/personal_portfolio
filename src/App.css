@@ -118,7 +118,7 @@ button.navbar-toggler {
 
 
 .hero-section .avtar-img {
-  height: 100vh;
+  height: 75vh;
 }
 
 .hero-section .avtar-img img {
@@ -130,7 +130,6 @@ button.navbar-toggler {
       rgba(91, 90, 93, 1) 0%,
       rgba(242, 243, 245, 1) 36%,
       rgba(69, 75, 77, 1) 90%);
-  clip-path: ellipse(100% 55% at 48% 44%);
 }
 
 .projects {
@@ -138,7 +137,6 @@ button.navbar-toggler {
       rgba(91, 90, 93, 1) 0%,
       rgba(242, 243, 245, 1) 36%,
       rgba(69, 75, 77, 1) 90%);
-  clip-path: ellipse(100% 55% at 48% 44%);
 }
 
 .hero-section {
@@ -249,7 +247,6 @@ input {
 }
 
 .services {
-  margin: 80px 0 80px 0;
   padding-bottom: 60px;
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
