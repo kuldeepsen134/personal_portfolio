@@ -22,7 +22,7 @@ function UserProfile() {
       address: "",
       city: "",
       state: "",
-      totalExp: ''
+      totalExp: "",
     },
     enableReinitialize: true,
 
@@ -78,7 +78,7 @@ function UserProfile() {
             <div className="card mb-4">
               <div className="card-body text-center">
                 <img
-                  src={`${process.env.REACT_APP_API_BASE_URL}${userData?.profile}`}
+                  src={userData?.profile}
                   alt="avatar"
                   className="rounded-circle img-fluid"
                   style={{ width: 150 }}
@@ -156,7 +156,6 @@ function UserProfile() {
                     <p className="text-muted mb-0">{userData?.state}</p>
                   </div>
                 </div>
-
 
                 <hr />
                 <div className="row">
@@ -315,8 +314,6 @@ function UserProfile() {
                   />
                   <label htmlFor="floatingPassword">State</label>
                 </div>
-
-
 
                 <div className="form-floating  mb-3">
                   <input

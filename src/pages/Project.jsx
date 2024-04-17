@@ -42,7 +42,7 @@ const Project = () => {
                   <div className="cardImage ">
                     {item?.photoes?.map((pic, j) => (
                       <img
-                        src={`${process.env.REACT_APP_API_BASE_URL}${pic}`}
+                        src={pic}
                         className="card-img-top"
                         alt={item.t}
                         width={100}
