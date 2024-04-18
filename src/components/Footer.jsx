@@ -10,27 +10,35 @@ import { BsTwitterX } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <footer className="footer bg-dark text-white py-5">
+    <footer className="footer  text-white py-5">
       <div className="container">
         <div className="row">
           <div className="col-md-6">
             <p>&copy;{(new Date().getFullYear())} Kuldeep sen. All rights reserved.</p>
           </div>
-    
+
 
           <div className="col-md-6 ">
-            <ul className="socialMedia d-flex">
+            <ul className="socialMedia d-flex justify-content-end">
               <li>
-                <SlSocialLinkedin />
+                <a href="https://in.linkedin.com/in/kuldeep-sen134" target="_blank" >
+                  <SlSocialLinkedin />
+                </a>
               </li>
               <li>
-                <SlSocialInstagram />
+                <a href="https://www.instagram.com/officialkdsen134/">
+                  <SlSocialInstagram />
+                </a>
               </li>
               <li>
-                <SlSocialFacebook />
+                <a href="https://www.facebook.com/profile.php?id=100007104191365">
+                  <SlSocialFacebook />
+                </a>
               </li>
               <li>
-                <BsTwitterX />
+                <a href="https://x.com/KRtechnical2">
+                  <BsTwitterX />
+                </a>
               </li>
             </ul>
           </div>

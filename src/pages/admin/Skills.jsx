@@ -96,10 +96,10 @@ const SkillsPage = () => {
   return (
     <div className="container py-5">
       <div className="row">
-        <div className="col-12">
+        <div className="col-12 text-end pb-5">
           <button
             type="button"
-            className="btn btn-primary mx-4"
+            className="btn btn-primary"
             data-bs-toggle="modal"
             data-bs-target="#addSkillBtn"
           >
@@ -113,17 +113,20 @@ const SkillsPage = () => {
             <div className="col-3" key={i}>
               <div className="card">
                 <div className="card-body">
-                  <div className="d-flex">
+                  <div className="">
                     <h5 className="card-title">{item.title}</h5>
                     <img
                       src={`${process.env.REACT_APP_API_BASE_URL}${item.techLogo}`}
                       alt={item.title}
                       style={{ width: 50 }}
+                      className="d- pb-3"
                     />
                     {/* Button trigger modal */}
+                    <p className="card-text">{item.totalExp}</p>
+
                     <button
                       type="button"
-                      className="btn btn-primary mx-4"
+                      className="btn btn-primary me-4"
                       data-bs-toggle="modal"
                       data-bs-target="#staticBackdrop"
                       onClick={() => {
@@ -135,7 +138,7 @@ const SkillsPage = () => {
 
                     <button
                       type="button"
-                      className="btn btn-danger mx-4"
+                      className="btn btn-danger "
                       onClick={() => {
                         handleDelete(item._id);
                       }}
@@ -143,7 +146,6 @@ const SkillsPage = () => {
                       <AiOutlineDelete />
                     </button>
                   </div>
-                  <p className="card-text">{item.totalExp}</p>
                 </div>
               </div>
             </div>

@@ -78,11 +78,11 @@ const Experience = () => {
 
     return (
         <div className="container py-5">
-            <div className="row">
+            <div className="row pb-5">
                 <div className="col-12">
                     <button
                         type="button"
-                        className="btn btn-primary mx-4"
+                        className="btn btn-primary "
                         data-bs-toggle="modal"
                         data-bs-target="#addSkillBtn"
                     >
@@ -96,17 +96,18 @@ const Experience = () => {
                         <div className="col-3" key={i}>
                             <div className="card">
                                 <div className="card-body">
-                                    <div className="d-flex">
+                                    <div className="">
                                         <h5 className="card-title">{item.title}</h5>
                                         <img
                                             src={`${process.env.REACT_APP_API_BASE_URL}${item.techLogo}`}
                                             alt={item.title}
                                             style={{ width: 50 }}
+                                            className='d-block pb-3'
                                         />
                                         {/* Button trigger modal */}
                                         <button
                                             type="button"
-                                            className="btn btn-primary mx-4"
+                                            className="btn btn-primary me-3"
                                             data-bs-toggle="modal"
                                             data-bs-target="#staticBackdrop"
                                             onClick={() => {
@@ -118,7 +119,7 @@ const Experience = () => {
 
                                         <button
                                             type="button"
-                                            className="btn btn-danger mx-4"
+                                            className="btn btn-danger "
                                             onClick={() => {
                                                 handleDelete(item._id);
                                             }}

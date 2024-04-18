@@ -6,7 +6,7 @@ import AppSidebar from "../pages/AppSidebar";
 const PrivateLayout = () => {
   return (
     <div className="private-layout">
-      <Row>
+      <Row className="mx-0">
         <Col xs={2}>
           <AppSidebar />
         </Col>

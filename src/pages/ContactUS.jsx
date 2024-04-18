@@ -43,7 +43,7 @@ const ContactUS = () => {
     <div className="contactUS" id="contactMe">
       <div className="container">
         <div className="row mt-4 pt-4 py-4">
-          <div className="col-6 mt-4 ">
+          <div className="col-sm-6 mt-4 ">
             <h2 className="fw-bold">Let's get in touch</h2>
             <p>
               I enjoy discussing new projects and design challenges. Please
@@ -55,7 +55,7 @@ const ContactUS = () => {
             <span className="fw-bold">Call: </span>
             <a href="tel:+7772972720">7772972720</a>
           </div>
-          <div className="col-6 mt-4">
+          <div className="col-sm-6 mt-4">
             <h2 className="fw-bold">Contact US </h2>
             <form
               id="contact-form"
@@ -158,10 +158,10 @@ const ContactUS = () => {
                     </div>
                   ) : null}
                 </div>
-                <div className="workBtn col-2 text-center ">
+                <div className=" text-center ">
                   <button
                     type="submit"
-                    className="workBtn btn text-white rounded-0"
+                    className="workBtn btn text-white rounded-0 px-5"
                     disabled={!formik.isValid}
                   >
                     Send

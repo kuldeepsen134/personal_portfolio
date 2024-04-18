@@ -17,14 +17,14 @@ const Resume = () => {
 
   return (
     <>
-      <div className="">
+      <div className="resume">
         <div className="container">
           <div className="text-center"></div>
-          <div className="row text-center mt-4 my-4">
-            <span className="fw-bolder fs-2">A summary of My CV</span>
+          <div className="row text-center  py-4">
+            <h1 className="fw-bolder pb-5">A summary of My CV</h1>
           </div>
-          <div className="row">
-            <div className="col-5 border-start border-2 border-warning ps-3">
+          <div className="row justify-content-center">
+            <div className="col-sm-6 border-start-none border-start-lg  border-2 border-warning ps-3">
               <span className="fw-bolder fs-2">My Education</span>
               <hr className="bg-warning border-3 border-top border-warning" />
               {userEducationListData?.data?.map((item, i) => {
@@ -38,7 +38,7 @@ const Resume = () => {
               })}
             </div>
 
-            <div className="col-5 border-start border-2 border-warning ps-3">
+            <div className="col-sm-6 border-start-none border-start-lg border-2 border-warning ps-3">
               <span className="fw-bolder fs-2">My Experience</span>
               <hr className="bg-warning border-4 border-top border-warning" />
               {experienceListData?.data?.map((item, i) => {

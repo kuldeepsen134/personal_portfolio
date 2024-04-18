@@ -24,12 +24,12 @@ const Skill = () => {
     <>
       <div className="skillPage" id="skill-page">
         <div className="container">
-          <div className="row text-start mt-4 my-4">
-            <p className="fw-bolder fs-2 my-4">My Skills</p>
+          <div className="row text-start  py-4">
+            <h1 className="fw-bolder text-center pb-5 my-4">My Skills</h1>
             <div className="row">
               {userSkillsListData.data?.map((item, i) => {
                 return (
-                  <div className="col-6 " key={i}>
+                  <div className="col-sm-6 " key={i}>
                     <p className="fw-bolder my-2">{item?.title}</p>
                     <div
                       className="progress"
@@ -58,16 +58,10 @@ const Skill = () => {
             </div>
           </div>
           <div className="row justify-content-center mt-4" id="resume">
-            <div className="downloadCV col-2 text-center  my-4">
-              <button
-                id="submit-btn"
-                className="downloadCV btn text-white rounded-0"
-                type="submit"
-                onClick={handleDownload}
-              >
-                Download CV
-              </button>
+            <div class=" my-4 text-center">
+              <button id="submit-btn" className="downloadCV btn text-white rounded-0 px-5" type="submit" onClick={handleDownload}>Download CV</button>
             </div>
+
           </div>
         </div>
       </div>

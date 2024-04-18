@@ -19,9 +19,8 @@ const Project = () => {
     <div className="projects" id="ourWork">
       <div className="container">
         <div className="text-center pt-2 py-4">
-          <span className="fw-bolder fs-4">
-            Some of my most recent projects
-          </span>
+          <h1 className="fw-bolder">Some of my most recent projects</h1>
+
         </div>
         {loading ? (
           <div className="loading text-center">
@@ -38,7 +37,7 @@ const Project = () => {
           <div className="row animate__animated animate__zoomInUp pb-4">
             {data?.map((item, i) => (
               <div className="col-md-4 p-2" key={i}>
-                <div className="card  mx-2 h-100">
+                <div className="card h-100">
                   <div className="cardImage ">
                     {item?.photoes?.map((pic, j) => (
                       <img

@@ -82,7 +82,7 @@ const EducationPage = () => {
     return (
         <div className="container py-5">
             <div className="row">
-                <div className="col-12">
+                <div className="col-12 pb-5 text-end">
                     <button
                         type="button"
                         className="btn btn-primary mx-4"
@@ -99,16 +99,16 @@ const EducationPage = () => {
                         <div className="col-3" key={i}>
                             <div className="card">
                                 <div className="card-body">
-                                    <div className="d-flex">
+                                    <div className="">
                                         <p className="card-title">Program : {item.program}</p>
                                         <p className="card-title">Institute : {item.institute}</p>
                                         <p className="card-title">Description : {item.description}</p>
-
-                                        
+                                        <p className="card-text">Start date : {item.startDate}</p>
+                                        <p className="card-text">End date : {item.endDate}</p>
                                         {/* Button trigger modal */}
                                         <button
                                             type="button"
-                                            className="btn btn-primary mx-4"
+                                            className="btn btn-primary me-3"
                                             data-bs-toggle="modal"
                                             data-bs-target="#staticBackdrop"
                                             onClick={() => {
@@ -120,7 +120,7 @@ const EducationPage = () => {
 
                                         <button
                                             type="button"
-                                            className="btn btn-danger mx-4"
+                                            className="btn btn-danger "
                                             onClick={() => {
                                                 handleDelete(item._id);
                                             }}
@@ -128,8 +128,6 @@ const EducationPage = () => {
                                             <AiOutlineDelete />
                                         </button>
                                     </div>
-                                    <p className="card-text">Start date : {item.startDate}</p>
-                                    <p className="card-text">End date : {item.endDate}</p>
 
                                 </div>
                             </div>

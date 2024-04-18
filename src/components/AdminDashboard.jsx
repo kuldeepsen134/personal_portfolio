@@ -13,7 +13,7 @@ const AdminDashboard = () => {
                 <h1 className="h3 mb-0 text-gray-800">AdminDashboard</h1>
               </div>
               {/* Content Row */}
-              <div className="row">
+              <div className="row mx-0">
                 {/* Earnings (Monthly) Card Example */}
                 <div className="col-xl-3 col-md-6 mb-4">
                   <div className="card border-left-primary shadow h-100 py-2">

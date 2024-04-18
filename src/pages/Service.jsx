@@ -4,10 +4,10 @@ import service from "../components/service";
 
 const Service = () => {
   return (
-    <div className="services" id="whatIdo">
+    <div className="services py-5" id="whatIdo">
       <div className="container">
         <div className="row text-center pt-2 py-4">
-          <h2 className="fw-bolder">How I can help your next project</h2>
+          <h1 className="fw-bolder text-white pb-5">How I can help your next project</h1>
         </div>
 
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">

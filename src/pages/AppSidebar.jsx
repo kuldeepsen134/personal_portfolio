@@ -9,8 +9,8 @@ const AppSidebar = () => {
   return (
     <>
       <aside id="sidebar-wrapper">
-        <div className="container">
-          <div className="sidebar-brand">
+        <div className="">
+          <div className="sidebar-brand pb-0">
             <h2>Kuldeep Sen</h2>
             <hr className="text-white" />
           </div>

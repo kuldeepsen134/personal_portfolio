@@ -145,8 +145,9 @@ const ProjectPage = () => {
   };
 
   return (
-    <div className="project">
+    <div className="project py-5">
       <div className="container">
+        <div className="text-end">
         <button
           type="button"
           className="btn btn-primary"
@@ -155,6 +156,7 @@ const ProjectPage = () => {
         >
           Add new Project
         </button>
+        </div>
         <div style={{ overflowX: "auto" }} className="mt-4">
           <table className="table table-bordered w-auto">
             <thead>

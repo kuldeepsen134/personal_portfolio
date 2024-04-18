@@ -37,7 +37,7 @@ const Home = () => {
           {data &&
             data?.map((user, i) => {
               return (
-                <div className="row align-items-center vh-100" key={i}>
+                <div className="row align-items-center vh-100 pt-5" key={i}>
                   <div className="col-lg-7 py-5 ps-lg-5">
                     <h1>Hi There, I Am {user?.full_name}</h1>
                     <div>
@@ -45,24 +45,22 @@ const Home = () => {
                     </div>
 
                     <ul className="d-flex ">
-                      <li className="workBtn">
                         <button
                           type="button"
-                          className="btn text-white"
+                          className="btn text-white workBtn"
                           onClick={() => scrollToAbout("ourWork")}
                         >
                           View my Works
                         </button>
-                      </li>
-                      <li className="workBtn">
+                
                         <button
                           type="button"
-                          className="btn text-white"
+                          className="btn text-white workBtn"
                           onClick={() => scrollToAbout("contactMe")}
                         >
                           Contact Me
                         </button>
-                      </li>
+     
                     </ul>
                   </div>
                   <div className="col-lg-5">
