@@ -135,7 +135,6 @@ const SkillsPage = () => {
                     >
                       <BiEdit />
                     </button>
-
                     <button
                       type="button"
                       className="btn btn-danger "
