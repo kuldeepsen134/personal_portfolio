@@ -4,15 +4,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { createContactUs } from "../redux/slice/contactusSlice";
 
-// Components
-import {
-  SlSocialLinkedin,
-  SlSocialInstagram,
-  SlSocialFacebook,
-} from "react-icons/sl";
-import { BsTwitterX } from "react-icons/bs";
-
 const ContactUS = () => {
+
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -53,7 +46,7 @@ const ContactUS = () => {
             <span className="fw-bold">Living In:</span>
             <p className="">Nanda nagar, Indore (M.P.) India</p>
             <span className="fw-bold">Call: </span>
-            <a href="tel:+7772972720">7772972720</a>
+            <a href="tel:+6261132091" aria-label="6261132091">6261132091</a>
           </div>
           <div className="col-sm-6 mt-4">
             <h2 className="fw-bold">Contact US </h2>

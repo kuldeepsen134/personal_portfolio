@@ -1,6 +1,4 @@
 import React, { useEffect } from "react";
-import Avatar from "react-avatar";
-// import { TypeAnimation } from "react-type-animation";
 import About from "./About";
 import Service from "./Service";
 import Resume from "./Resume";
@@ -44,7 +42,7 @@ const Home = () => {
                       <p className="fs-3 lh-lg" style={{ color: "#ef7f07" }}>{user?.title} </p >
                     </div>
 
-                    <ul className="d-flex ">
+                    <div className="d-flex ">
                         <button
                           type="button"
                           className="btn text-white workBtn"
@@ -52,7 +50,6 @@ const Home = () => {
                         >
                           View my Works
                         </button>
-                
                         <button
                           type="button"
                           className="btn text-white workBtn"
@@ -60,12 +57,11 @@ const Home = () => {
                         >
                           Contact Me
                         </button>
-     
-                    </ul>
+                    </div>
                   </div>
                   <div className="col-lg-5">
                     <div className="avtar-img">
-                      <img  src={user?.profile} />
+                      <img src={user?.profile} alt="profile"/>
                     </div>
                   </div>
                 </div>

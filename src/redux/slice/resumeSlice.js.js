@@ -7,7 +7,6 @@ const initialState = {
   userEducationData: {}
 }
 
-
 export const createEducation = createAsyncThunk('/create/educations', async (params, { rejectWithValue }) => {
   try {
     return await instance.post(`/educations`, params)
@@ -24,9 +23,6 @@ export const educationsList = createAsyncThunk('/educations/list', async ({ reje
   }
 })
 
-
-
-
 export const eductionListOne = createAsyncThunk('/educations/:id', async (id, { rejectWithValue }) => {
   try {
     return await instance.get(`/educations/${id}`)
@@ -34,7 +30,6 @@ export const eductionListOne = createAsyncThunk('/educations/:id', async (id, { 
     return rejectWithValue(error.responce)
   }
 })
-
 
 export const updateEducation = createAsyncThunk('/update/educations', async (params) => {
   try {
@@ -53,14 +48,12 @@ export const deleteEducation = createAsyncThunk('/delete/educations/:id', async 
 })
 
 
-
 const userSlice = createSlice({
   name: 'resume',
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-
       .addCase(createEducation.pending, (state) => {
         state.loading = true;
         state.userEducationData = {};
@@ -73,9 +66,6 @@ const userSlice = createSlice({
         state.loading = false;
         state.userEducationData = {};
       })
-
-
-
       .addCase(educationsList.pending, (state) => {
         state.loading = true;
         state.userEducationListData = {};
@@ -88,9 +78,6 @@ const userSlice = createSlice({
         state.loading = false;
         state.userEducationListData = {};
       })
-
-
-
       .addCase(eductionListOne.pending, (state) => {
         state.loading = true;
         state.userEducationData = {};
@@ -103,8 +90,6 @@ const userSlice = createSlice({
         state.loading = false;
         state.userEducationData = {};
       })
-
-
       .addCase(updateEducation.pending, (state) => {
         state.loading = true;
         state.userEducationData = {};
@@ -118,8 +103,6 @@ const userSlice = createSlice({
         state.loading = false;
         state.userEducationData = {};
       })
-
-
       .addCase(deleteEducation.pending, (state) => {
         state.loading = true;
         state.userEducationData = {};
@@ -133,9 +116,6 @@ const userSlice = createSlice({
         state.loading = false;
         state.userEducationData = {};
       })
-
-
-
   },
 });
 

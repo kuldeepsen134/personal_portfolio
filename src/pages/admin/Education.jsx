@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { createExperience, deleteExperience, experienceList, experienceListOne, updateExperience } from '../../redux/slice/experience';
 import { IoMdAddCircleOutline } from 'react-icons/io';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { BiEdit } from 'react-icons/bi';
@@ -8,15 +7,13 @@ import { useFormik } from 'formik';
 import { createEducation, deleteEducation, educationsList, eductionListOne, updateEducation } from '../../redux/slice/resumeSlice.js';
 
 const EducationPage = () => {
+    
     const dispatch = useDispatch();
 
     const [isUpdateSuccess, setIsUpdateSuccess] = useState(false);
     const [isDeleteSuccess, setIsDeleteSuccess] = useState(false);
 
-
     const { userEducationListData, userEducationData } = useSelector((state) => state.resume);
-
-
 
     const addFormik = useFormik({
         initialValues: {
@@ -25,10 +22,8 @@ const EducationPage = () => {
             description: '',
             startDate: '',
             endDate: '',
-
         },
         enableReinitialize: true,
-
         onSubmit: async (values, { resetForm }) => {
             try {
                 await dispatch(createEducation(values));
@@ -40,8 +35,6 @@ const EducationPage = () => {
         },
     });
 
-
-
     const editFormik = useFormik({
         initialValues: {
             id: userEducationData?._id || "",
@@ -52,9 +45,7 @@ const EducationPage = () => {
             endDate: userEducationData.endDate || '',
         },
         enableReinitialize: true,
-
         onSubmit: async (values) => {
-            const { id } = values;
             try {
                 await dispatch(updateEducation(values));
                 setIsUpdateSuccess((prev) => !prev);
@@ -128,14 +119,12 @@ const EducationPage = () => {
                                             <AiOutlineDelete />
                                         </button>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     );
                 })}
             </div>
-
 
             {/*Add skill Modal */}
             <div
@@ -224,7 +213,6 @@ const EducationPage = () => {
                                     />
                                     <label htmlFor="floatingPassword">End Date</label>
                                 </div>
-
 
                                 <div className="modal-footer">
                                     <button
@@ -358,7 +346,6 @@ const EducationPage = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }

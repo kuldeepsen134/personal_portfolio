@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const AppHeader = () => {
+
   const [navSize, setnavSize] = useState("5rem");
   const [navColor, setnavColor] = useState("transparent");
   const [isOpen, setIsOpen] = useState(true)
   const [isDefault, setIsDefault] = useState(false)
-
 
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setnavColor("#252734") : setnavColor("transparent");
@@ -27,13 +27,10 @@ const AppHeader = () => {
     }
   };
 
-
   const handleStateWithClick = () => {
     setIsDefault(true)
     setIsOpen(!isOpen)
-
   }
-
 
   return (
     <>

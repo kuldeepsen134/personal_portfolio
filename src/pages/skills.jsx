@@ -25,7 +25,7 @@ const Skill = () => {
       <div className="skillPage" id="skill-page">
         <div className="container">
           <div className="row text-start  py-4">
-            <h1 className="fw-bolder text-center pb-5 my-4">My Skills</h1>
+            <h2 className="fw-bolder text-center pb-5 my-4">My Skills</h2>
             <div className="row">
               {userSkillsListData.data?.map((item, i) => {
                 return (
@@ -39,10 +39,14 @@ const Skill = () => {
                       aria-valuemin="0"
                       aria-valuemax="10"
                       style={{ height: "12px" }}
+                      title="skills-progress"
+
                     >
                       <div
                         className="progress-bar"
                         role="progressbar"
+                        aria-label="percentage"
+
                         style={{
                           width: `${percentageProgress}%`,
                           height: "12px",
@@ -58,10 +62,9 @@ const Skill = () => {
             </div>
           </div>
           <div className="row justify-content-center mt-4" id="resume">
-            <div class=" my-4 text-center">
+            <div className=" my-4 text-center">
               <button id="submit-btn" className="downloadCV btn text-white rounded-0 px-5" type="submit" onClick={handleDownload}>Download CV</button>
             </div>
-
           </div>
         </div>
       </div>

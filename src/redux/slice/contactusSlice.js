@@ -24,15 +24,12 @@ export const enquiryList = createAsyncThunk('enquiry/list', async (params, { rej
   }
 })
 
-
-
 const ccontactUsSlice = createSlice({
   name: 'services',
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      
       .addCase(createContactUs.pending, (state) => {
         state.loading = true;
         state.contactData = {};
@@ -46,19 +43,6 @@ const ccontactUsSlice = createSlice({
         state.loading = false;
         state.contactData = {};
       })
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       .addCase(enquiryList.pending, (state) => {
         state.loading = true;

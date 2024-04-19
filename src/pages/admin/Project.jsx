@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  createProject,
-  getProjectData,
-  projectDelete,
-  projectList,
-} from "../../redux/slice/projectSlice";
+import { createProject, getProjectData, projectDelete, projectList } from "../../redux/slice/projectSlice";
 import { LuClipboardEdit } from "react-icons/lu";
 import { MdDelete } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
 import { IoIosLink } from "react-icons/io";
 import { useFormik } from "formik";
 
@@ -21,11 +15,7 @@ const ProjectPage = () => {
 
   const [newProject, setNewProject] = useState({});
 
-  const {
-    projectListData: { data },
-    projectData,
-  } = useSelector((state) => state.project);
-
+  const { projectListData: { data }, projectData } = useSelector((state) => state.project);
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -60,38 +50,6 @@ const ProjectPage = () => {
     },
   });
 
-  // const formikEditProject = useFormik({
-  //   initialValues: {
-  //     title: "",
-  //     short_desc: "",
-  //     description: "",
-  //     photoes: [],
-  //     video: [],
-  //     github: "",
-  //     image: "",
-  //   },
-  //   enableReinitialize: true,
-
-  //   onSubmit: async (values) => {
-  //     const formData = new FormData();
-  //     Object.entries(values).forEach(([key, value]) => {
-  //       // Check if the field is a file input and a new file is provided
-  //       if (value instanceof File) {
-  //         formData.append(key, value); // Append the new file
-  //       } else if (value) {
-  //         formData.append(key, value); // Append other non-empty fields
-  //       }
-  //     });
-
-  //     try {
-  //       const result = await dispatch(createProject(formData));
-  //       setNewProject(result);
-  //     } catch (error) {
-  //       console.error("Login failed:", error);
-  //     }
-  //   },
-  // });
-
   const handleDeleteProject = (id) => {
     setProjectId(id);
     dispatch(projectDelete(id));
@@ -102,17 +60,13 @@ const ProjectPage = () => {
   }, [dispatch, projectId, newProject]);
 
 
-  
-  useEffect(() => {
-
-
-    dispatch(getProjectData(editeProject));
-
-  }, [dispatch, editeProject]);
-
   const toggleRowExpansion = (index) => {
     setExpandedRowIndex(expandedRowIndex === index ? null : index);
   };
+
+  useEffect(() => {
+    dispatch(getProjectData(editeProject));
+  }, [dispatch, editeProject]);
 
   const renderDescription = (description, index) => {
     if (expandedRowIndex === index) {
@@ -148,14 +102,14 @@ const ProjectPage = () => {
     <div className="project py-5">
       <div className="container">
         <div className="text-end">
-        <button
-          type="button"
-          className="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#staticBackdrop"
-        >
-          Add new Project
-        </button>
+          <button
+            type="button"
+            className="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+            Add new Project
+          </button>
         </div>
         <div style={{ overflowX: "auto" }} className="mt-4">
           <table className="table table-bordered w-auto">

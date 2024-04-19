@@ -12,10 +12,7 @@ const Experience = () => {
     const [isUpdateSuccess, setIsUpdateSuccess] = useState(false);
     const [isDeleteSuccess, setIsDeleteSuccess] = useState(false);
 
-
     const { experienceListData, experienceData } = useSelector((state) => state.experience);
-
-
 
     const addFormik = useFormik({
         initialValues: {
@@ -26,7 +23,6 @@ const Experience = () => {
             leaveDate: ''
         },
         enableReinitialize: true,
-
         onSubmit: async (values, { resetForm }) => {
             try {
                 await dispatch(createExperience(values));
@@ -36,7 +32,6 @@ const Experience = () => {
             }
         },
     });
-
 
 
     const editFormik = useFormik({
@@ -51,7 +46,6 @@ const Experience = () => {
         enableReinitialize: true,
 
         onSubmit: async (values) => {
-            const { id } = values;
             try {
                 await dispatch(updateExperience(values));
                 setIsUpdateSuccess((prev) => !prev);
@@ -65,7 +59,6 @@ const Experience = () => {
     useEffect(() => {
         dispatch(experienceList(""));
     }, [dispatch, isUpdateSuccess, isDeleteSuccess]);
-
 
     const getExperience = (expID) => {
         dispatch(experienceListOne(expID));
@@ -135,7 +128,6 @@ const Experience = () => {
                 })}
             </div>
 
-
             {/*Add skill Modal */}
             <div
                 className="modal fade"
@@ -161,7 +153,6 @@ const Experience = () => {
                         </div>
 
                         {/* Add new Skill form */}
-
                         <form className="skill-form" onSubmit={addFormik.handleSubmit}>
                             <div className="modal-body">
                                 <div className="form-floating mb-3">
@@ -357,7 +348,6 @@ const Experience = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }

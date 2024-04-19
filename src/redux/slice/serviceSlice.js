@@ -6,16 +6,6 @@ const initialState = {
   userServiceData: {}
 }
 
-// export const createUser = createAsyncThunk('user/create', async (params, { rejectWithValue }) => {
-//   try {
-//     return await instance.post('users', params)
-//   } catch (error) {
-//     return rejectWithValue(error.responce)
-//   }
-// })
-
-
-
 export const skillsList = createAsyncThunk('/services', async ({ rejectWithValue }) => {
   try {
     return await instance.get(`/services`,)
@@ -25,16 +15,12 @@ export const skillsList = createAsyncThunk('/services', async ({ rejectWithValue
 })
 
 
-
-
-
 const serviceSlice = createSlice({
   name: 'services',
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      
       .addCase(skillsList.pending, (state) => {
         state.loading = true;
         state.userServiceListData = {};

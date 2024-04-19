@@ -5,7 +5,6 @@ import { experienceList } from "../redux/slice/experience.js";
 
 const Resume = () => {
   const { userEducationListData } = useSelector((state) => state.resume);
-
   const { experienceListData } = useSelector((state) => state.experience);
 
   const dispatch = useDispatch();
@@ -21,7 +20,7 @@ const Resume = () => {
         <div className="container">
           <div className="text-center"></div>
           <div className="row text-center  py-4">
-            <h1 className="fw-bolder pb-5">A summary of My CV</h1>
+            <h2 className="fw-bolder pb-5">A summary of My CV</h2>
           </div>
           <div className="row justify-content-center">
             <div className="col-sm-6 border-start-none border-start-lg  border-2 border-warning ps-3">

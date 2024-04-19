@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-
 body {
   margin: 0;
   padding: 0;
@@ -8,7 +7,6 @@ body {
   top: 0;
   bottom: 0;
   font-family: "Raleway", sans-serif!important;
-
 }
 
 
@@ -24,22 +22,10 @@ ol, ul {
   margin-right: 0;
 }
 
-
-
-
 .intro {
   font-weight: 4.0rem !important;
 }
 
-.sb-avatar.sb-avatar--src {
-  display: inline-block;
-  padding: 0px;
-  width: 500px;
-  height: 500px;
-  background-color: #fff;
-  border-radius: 50rem !important;
-  font-family: Helvetica, Arial, sans-serif;
-}
 
 .navbar-collapse {
   position: absolute;
@@ -62,9 +48,7 @@ ol, ul {
 .navbar-brand-name {
   text-decoration: none;
   font-size: 1.8em;
-  /* color: #ef7f07; */
   color: #ffff;
-
 }
 
 .navbar-toggler:focus {
@@ -125,19 +109,16 @@ button.navbar-toggler {
 .hero-section {
   background-position: center;
   color: #fff;
-  /* background-color: #020202d9; */
   background-image: url(./assets/images/bg-banner-image.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 
 .hero-section .avtar-img {
   height: 75vh;
 }
 
 .hero-section .avtar-img img {
-  /* height: 100%; */
   width: -webkit-fill-available;
 }
 
@@ -148,17 +129,13 @@ button.navbar-toggler {
   background-color: #020202d9;
 }
 
-
-
 .hireme {
   background: url("./assets/images/bg.jpg") no-repeat center center;
   background-size: cover;
-  /* This ensures the image covers the entire container */
   height: 456px;
   position: relative;
   display: flex;
   align-items: center;
-  /* Necessary for absolute positioning of content */
 }
 
 
@@ -180,9 +157,6 @@ button.hireMeBtn:hover {
 button.hireMeBtn {
   background: #ef7f07;
 }
-
-
-
 
 .workBtn {
   margin: 4px;
@@ -216,14 +190,12 @@ a {
 }
 
 .skillPage {
-  /* background: #212534; */
   color: #fff;
   background: linear-gradient(to bottom, #434343, #181818);
 }
 
 .resume {
   padding: 80px 0 80px 0;
-  /* background-color: #0f0f0f; */
   background: #000000;
   background: linear-gradient(to top, #434343, #000000);
   color: white;
@@ -267,14 +239,11 @@ input {
 
 .about-me {
   padding: 80px 0 80px 0;
-  /* background-color: #0f0f0f; */
   background: #000000;
   background: -webkit-linear-gradient(to top, #434343, #000000);
   background: linear-gradient(to top, #434343, #000000);
   color: white;
 }
-
-
 
 .services {
   padding-bottom: 60px;
@@ -286,13 +255,10 @@ input {
 
 
 .projects {
-  /* background: linear-gradient(to bottom, #434343, #000000); */
-
   background: linear-gradient(to top, #434343, #181818);
   padding: 80px 0;
   color: white;
 }
-
 
 .contactUS {
   background: linear-gradient(to top, #434343, #181818);
@@ -368,7 +334,6 @@ span.wow.heartBeat {
 }
 
 /* KEYFRAMES */
-
 @keyframes btn-anim1 {
   0% {
     left: -100%;
@@ -440,7 +405,6 @@ span.wow.heartBeat {
   background-size: cover;
   height: 100vh;
 }
-
 
 /* COntact us page */
 ul.socialMedia {

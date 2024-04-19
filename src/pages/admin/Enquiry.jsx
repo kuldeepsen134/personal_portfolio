@@ -12,7 +12,7 @@ const EnquiryPage = () => {
 
   return (
     <div className="container py-5">
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">Enquiry ID</th>

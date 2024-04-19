@@ -10,7 +10,7 @@ const AdminDashboard = () => {
           <div id="content">
             <div className="container-fluid">
               <div className="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 className="h3 mb-0 text-gray-800">AdminDashboard</h1>
+                <h2 className="h3 mb-0 text-gray-800">AdminDashboard</h2>
               </div>
               {/* Content Row */}
               <div className="row mx-0">
@@ -78,6 +78,7 @@ const AdminDashboard = () => {
                                   aria-valuenow={50}
                                   aria-valuemin={0}
                                   aria-valuemax={100}
+                                  aria-label="skills-progress"
                                 />
                               </div>
                             </div>
@@ -140,14 +141,14 @@ const AdminDashboard = () => {
                           <div className="dropdown-header">
                             Dropdown Header:
                           </div>
-                          <a className="dropdown-item" href="/">
+                          <a className="dropdown-item" href="/" aria-label="Action">
                             Action
                           </a>
-                          <a className="dropdown-item" href="/">
+                          <a className="dropdown-item" href="/"aria-label="Another action">
                             Another action
                           </a>
                           <div className="dropdown-divider" />
-                          <a className="dropdown-item" href="/">
+                          <a className="dropdown-item" href="/"aria-label="Something else here">
                             Something else here
                           </a>
                         </div>
@@ -188,14 +189,14 @@ const AdminDashboard = () => {
                           <div className="dropdown-header">
                             Dropdown Header:
                           </div>
-                          <a className="dropdown-item" href="/">
+                          <a className="dropdown-item" href="/" aria-label="Action">
                             Action
                           </a>
-                          <a className="dropdown-item" href="/">
+                          <a className="dropdown-item" href="/" aria-label="Another action">
                             Another action
                           </a>
                           <div className="dropdown-divider" />
-                          <a className="dropdown-item" href="/">
+                          <a className="dropdown-item" href="/" aria-label="Something else here">
                             Something else here
                           </a>
                         </div>

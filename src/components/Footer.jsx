@@ -1,11 +1,7 @@
 import React from "react";
-import {
-  SlSocialLinkedin,
-  SlSocialInstagram,
-  SlSocialFacebook,
-} from "react-icons/sl";
+import { SlSocialLinkedin, SlSocialInstagram, SlSocialFacebook, } from "react-icons/sl";
 import { BsTwitterX } from "react-icons/bs";
-
+import { Link } from "react-router-dom";
 
 
 const Footer = () => {
@@ -16,29 +12,27 @@ const Footer = () => {
           <div className="col-md-6">
             <p>&copy;{(new Date().getFullYear())} Kuldeep sen. All rights reserved.</p>
           </div>
-
-
           <div className="col-md-6 ">
             <ul className="socialMedia d-flex justify-content-end">
               <li>
-                <a href="https://in.linkedin.com/in/kuldeep-sen134" target="_blank" >
+                <Link to="https://in.linkedin.com/in/kuldeep-sen134" target="_blank" >
                   <SlSocialLinkedin />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://www.instagram.com/officialkdsen134/">
+                <Link to="https://www.instagram.com/officialkdsen134/">
                   <SlSocialInstagram />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://www.facebook.com/profile.php?id=100007104191365">
+                <Link to="https://www.facebook.com/profile.php?id=100007104191365">
                   <SlSocialFacebook />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://x.com/KRtechnical2">
+                <Link to="https://x.com/KRtechnical2">
                   <BsTwitterX />
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

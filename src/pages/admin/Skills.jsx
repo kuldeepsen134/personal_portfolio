@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { BiEdit } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  createSkills,
-  deleteSkill,
-  skillsList,
-  skillsListOne,
-  updateSkill,
-} from "../../redux/slice/skillSlice";
+import {  createSkills,  deleteSkill,  skillsList,  skillsListOne,  updateSkill} from "../../redux/slice/skillSlice";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { AiOutlineDelete } from "react-icons/ai";
-
 import { useFormik } from "formik";
 
 const SkillsPage = () => {
@@ -271,7 +264,6 @@ const SkillsPage = () => {
             </div>
 
             {/* Add new Skill form */}
-
             <form className="skill-form" onSubmit={addFormik.handleSubmit}>
               <div className="modal-body">
                 <div className="form-floating mb-3">

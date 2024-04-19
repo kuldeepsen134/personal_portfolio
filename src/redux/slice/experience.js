@@ -8,7 +8,6 @@ const initialState = {
     experienceData: {},
 }
 
-
 export const createExperience = createAsyncThunk('/create/experiences', async (value, { rejectWithValue }) => {
     try {
         return await instance.post(`/experiences`, value)
@@ -25,7 +24,6 @@ export const experienceList = createAsyncThunk('/experiences', async ({ rejectWi
     }
 })
 
-
 export const experienceListOne = createAsyncThunk('/experiences/:id', async (id, { rejectWithValue }) => {
     try {
         return await instance.get(`/experiences/${id}`)
@@ -33,7 +31,6 @@ export const experienceListOne = createAsyncThunk('/experiences/:id', async (id,
         return rejectWithValue(error.responce)
     }
 })
-
 
 export const updateExperience = createAsyncThunk('/update/experiences', async (params) => {
     try {
@@ -71,7 +68,6 @@ const experienceSlice = createSlice({
                 state.loading = false;
                 state.experienceData = {};
             })
-
             .addCase(experienceList.pending, (state) => {
                 state.loading = true;
                 state.experienceListData = {};
@@ -84,8 +80,6 @@ const experienceSlice = createSlice({
                 state.loading = false;
                 state.experienceListData = {};
             })
-
-
             .addCase(experienceListOne.pending, (state) => {
                 state.loading = true;
                 state.experienceData = {};
@@ -98,8 +92,6 @@ const experienceSlice = createSlice({
                 state.loading = false;
                 state.experienceData = {};
             })
-
-
             .addCase(updateExperience.pending, (state) => {
                 state.loading = true;
                 state.experienceData = {};
@@ -113,8 +105,6 @@ const experienceSlice = createSlice({
                 state.loading = false;
                 state.experienceData = {};
             })
-
-
             .addCase(deleteExperience.pending, (state) => {
                 state.loading = true;
                 state.experienceData = {};

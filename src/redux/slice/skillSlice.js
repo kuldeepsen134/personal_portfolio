@@ -54,9 +54,6 @@ const skillSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-
-
-
       .addCase(createSkills.pending, (state) => {
         state.loading = true;
         state.userSkillsData = {};
@@ -69,9 +66,6 @@ const skillSlice = createSlice({
         state.loading = false;
         state.userSkillsData = {};
       })
-
-
-
       .addCase(skillsList.pending, (state) => {
         state.loading = true;
         state.userSkillsListData = {};
@@ -84,17 +78,6 @@ const skillSlice = createSlice({
         state.loading = false;
         state.userSkillsListData = {};
       })
-
-
-
-
-
-
-
-
-
-
-
       .addCase(skillsListOne.pending, (state) => {
         state.loading = true;
         state.userSkillsData = {};
@@ -107,8 +90,6 @@ const skillSlice = createSlice({
         state.loading = false;
         state.userSkillsData = {};
       })
-
-
       .addCase(updateSkill.pending, (state) => {
         state.loading = true;
         state.userSkillsData = {};

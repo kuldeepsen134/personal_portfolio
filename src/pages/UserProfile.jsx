@@ -6,8 +6,8 @@ import { DNA } from "react-loader-spinner";
 import { useFormik } from "formik";
 
 function UserProfile() {
-  const { userData, loading } = useSelector((state) => state.user);
 
+  const { userData, loading } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -26,7 +26,6 @@ function UserProfile() {
     enableReinitialize: true,
     onSubmit: async (values) => {
       const formData = new FormData();
-
       Object.entries(values).forEach(([key, value]) => {
         // Check if the field is a file input and a new file is provided
         if (key === "pic" && value instanceof File) {

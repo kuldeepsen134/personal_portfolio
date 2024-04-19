@@ -25,7 +25,6 @@ export const userAbout = createAsyncThunk('/users', async (params, { rejectWithV
   }
 })
 
-
 export const updateProfile = createAsyncThunk('/users/profile', async (data, { rejectWithValue }) => {
   try {
     return await instance.patch('/users/profile', data, { withCredentials: true })
@@ -34,8 +33,6 @@ export const updateProfile = createAsyncThunk('/users/profile', async (data, { r
   }
 })
 
-
-
 export const me = createAsyncThunk('/me', async (data, { rejectWithValue }) => {
   try {
     return await instance.get(`me`,)
@@ -43,8 +40,6 @@ export const me = createAsyncThunk('/me', async (data, { rejectWithValue }) => {
     return rejectWithValue(error.responce)
   }
 })
-
-
 
 const userSlice = createSlice({
   name: 'user',
@@ -76,9 +71,6 @@ const userSlice = createSlice({
         state.loading = false;
         state.userData = {};
       })
-
-      // Update profile function
-
       .addCase(updateProfile.pending, (state) => {
         state.loading = true;
         state.userlistData = {};

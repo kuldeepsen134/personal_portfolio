@@ -8,7 +8,6 @@ const initialState = {
     projectData: {}
 }
 
-
 export const createProject = createAsyncThunk('create/projects', async (data, { rejectWithValue }) => {
     try {
         return await instance.post('/projects', data, { withCredentials: true })
@@ -25,7 +24,6 @@ export const updateProject = createAsyncThunk('/users/profile', async (data, { r
     }
 })
 
-
 export const projectList = createAsyncThunk('projects', async (params, { rejectWithValue }) => {
     try {
         return await instance.get(`/projects`)
@@ -33,8 +31,6 @@ export const projectList = createAsyncThunk('projects', async (params, { rejectW
         return rejectWithValue(error.responce)
     }
 })
-
-
 
 export const getProjectData = createAsyncThunk('projects/:id', async (params, { rejectWithValue }) => {
     try {
@@ -44,7 +40,6 @@ export const getProjectData = createAsyncThunk('projects/:id', async (params, { 
     }
 })
 
-
 export const projectDelete = createAsyncThunk('projects/delete', async (params, { rejectWithValue }) => {
     try {
         return await instance.delete(`/projects/${params}`)
@@ -53,15 +48,11 @@ export const projectDelete = createAsyncThunk('projects/delete', async (params, 
     }
 })
 
-
-
 const projectSlice = createSlice({
     name: 'project',
     initialState: initialState,
     reducers: {},
-
     //***************   Create Product ******************/
-
     extraReducers: (builder) => {
         builder
             .addCase(createProject.pending, (state) => {
@@ -78,8 +69,6 @@ const projectSlice = createSlice({
                 state.loading = false;
                 state.projectData = {};
             })
-
-
             .addCase(projectList.pending, (state) => {
                 state.loading = true;
                 state.projectListData = {};
@@ -92,14 +81,6 @@ const projectSlice = createSlice({
                 state.loading = false;
                 state.projectListData = {};
             })
-
-
-
-
-
-
-
-
             .addCase(getProjectData.pending, (state) => {
                 state.loading = true;
                 state.projectData = {};
@@ -112,12 +93,6 @@ const projectSlice = createSlice({
                 state.loading = false;
                 state.projectData = {};
             })
-
-
-
-
-
-
             .addCase(projectDelete.pending, (state) => {
                 state.loading = true;
                 state.loading = false;
@@ -132,9 +107,6 @@ const projectSlice = createSlice({
                 state.loading = false;
                 state.projectData = {};
             })
-
-
-
     },
 })
 

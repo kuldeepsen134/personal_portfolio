@@ -4,10 +4,7 @@ import { projectList } from "../redux/slice/projectSlice";
 import { DNA } from "react-loader-spinner";
 
 const Project = () => {
-  const {
-    projectListData: { data },
-    loading,
-  } = useSelector((state) => state.project);
+  const { projectListData: { data }, loading } = useSelector((state) => state.project);
 
   const dispatch = useDispatch();
 
@@ -19,8 +16,7 @@ const Project = () => {
     <div className="projects" id="ourWork">
       <div className="container">
         <div className="text-center pt-2 py-4">
-          <h1 className="fw-bolder">Some of my most recent projects</h1>
-
+          <h2 className="fw-bolder">Some of my most recent projects</h2>
         </div>
         {loading ? (
           <div className="loading text-center">
