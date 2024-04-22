@@ -420,3 +420,16 @@ ul.socialMedia {
   height: 100%;
   max-width: 100%;
 }
+
+.education-box-flex p {
+    width: 50%;
+}
+
+.education-box-flex {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+  border-bottom: 1px solid;
+  padding-top: 10px;
+}
+

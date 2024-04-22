@@ -6,7 +6,6 @@ import { DNA } from "react-loader-spinner";
 import { useFormik } from "formik";
 
 function UserProfile() {
-
   const { userData, loading } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
@@ -67,7 +66,7 @@ function UserProfile() {
             <div className="card mb-4">
               <div className="card-body text-center">
                 <img
-                  src={userData?.profile}
+                  src={process.env.REACT_APP_API_BASE_URL + userData?.profile}
                   alt="avatar"
                   className="rounded-circle img-fluid"
                   style={{ width: 150 }}

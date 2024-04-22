@@ -55,7 +55,7 @@ const Home = () => {
               </div>
               <div className="col-lg-5">
                 <div className="avtar-img">
-                  <img src={user?.profile} alt="profile" />
+                  <img src={process.env.REACT_APP_API_BASE_URL +user?.profile} alt="profile" />
                 </div>
               </div>
             </div>

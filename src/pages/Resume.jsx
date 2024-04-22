@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { educationsList, } from "../redux/slice/resumeSlice.js";
+import { educationsList } from "../redux/slice/resumeSlice.js";
 import { experienceList } from "../redux/slice/experience.js";
 
 const Resume = () => {
@@ -28,10 +28,13 @@ const Resume = () => {
               <hr className="bg-warning border-3 border-top border-warning" />
               {userEducationListData?.data?.map((item, i) => {
                 return (
-                  <div className="" key={i}>
-                    <p className="fw-bolder fs-4">{item?.program}</p>
-                    <p>{item?.institute}</p>
-                    <p>{item?.description}</p>
+                  <div className=" education-box-flex" key={i}>
+                    <p className="fw-bolder fs-4">{item?.program} </p>
+                    <p className="text-end">{item?.institute}</p>
+                    {/* <p>{item?.description}</p> */}
+
+                    <p> {item?.startDate} </p>
+                    <p className="text-end"> {7.5}</p>
                   </div>
                 );
               })}
@@ -42,14 +45,11 @@ const Resume = () => {
               <hr className="bg-warning border-4 border-top border-warning" />
               {experienceListData?.data?.map((item, i) => {
                 return (
-                  <div className="" key={i}>
+                  <div className="  education-box-flex" key={i}>
                     <p className="fw-bolder fs-4">{item?.title}</p>
-                    <p>
-                      {item?.companyName}
-                      {"/"}
-                      {item.joiningDate}
-                    </p>
+                    <p className="text-end">{item?.companyName}</p>
                     <p>{item?.description}</p>
+                    <p className="text-end"> {item.joiningDate} </p>
                   </div>
                 );
               })}
