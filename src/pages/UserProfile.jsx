@@ -37,6 +37,7 @@ function UserProfile() {
 
       try {
         await dispatch(updateProfile(formData));
+        dispatch(me());
       } catch (error) {
         console.error("Login failed:", error);
       }
