@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createProject, getProjectData, projectDelete, projectList } from "../../redux/slice/projectSlice";
+import {
+  createProject,
+  getProjectData,
+  projectDelete,
+  projectList,
+} from "../../redux/slice/projectSlice";
 import { LuClipboardEdit } from "react-icons/lu";
 import { MdDelete } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
@@ -15,37 +20,73 @@ const ProjectPage = () => {
 
   const [newProject, setNewProject] = useState({});
 
-  const { projectListData: { data }, projectData } = useSelector((state) => state.project);
+  const {
+    projectListData: { data },
+    projectData,
+  } = useSelector((state) => state.project);
   const dispatch = useDispatch();
 
-  const formik = useFormik({
+    /* Add New project */
+
+    const formik = useFormik({
     initialValues: {
       title: "",
       short_desc: "",
       description: "",
-      photoes: [],
-      video: [],
       github: "",
-      image: "",
+      media: [],
     },
     enableReinitialize: true,
-
     onSubmit: async (values) => {
       const formData = new FormData();
-      Object.entries(values).forEach(([key, value]) => {
-        // Check if the field is a file input and a new file is provided
-        if (value instanceof File) {
-          formData.append(key, value); // Append the new file
-        } else if (value) {
-          formData.append(key, value); // Append other non-empty fields
-        }
-      });
+      // Append non-file fields
+      formData.append("title", values.title);
+      formData.append("short_desc", values.short_desc);
+      formData.append("description", values.description);
+      formData.append("github", values.github);
+      formData.append("liveURL", values.liveURL);
 
+      // Append file(s)
+      for (let i = 0; i < values.media.length; i++) {
+        formData.append("media", values.media[i]);
+      }
       try {
         const result = await dispatch(createProject(formData));
         setNewProject(result);
       } catch (error) {
-        console.error("Login failed:", error);
+        console.error("Project creation failed:", error);
+      }
+    },
+  });
+
+  const editFormik = useFormik({
+    initialValues: {
+      title: "",
+      short_desc: "",
+      description: "",
+      github: "",
+      media: [],
+    },
+    enableReinitialize: true,
+    onSubmit: async (values) => {
+      const formData = new FormData();
+      // Append non-file fields
+      formData.append("title", values.title);
+      formData.append("short_desc", values.short_desc);
+      formData.append("description", values.description);
+      formData.append("github", values.github);
+      formData.append("liveURL", values.liveURL);
+
+      // Append file(s)
+      for (let i = 0; i < values.media.length; i++) {
+        formData.append("media", values.media[i]);
+      }
+      try {
+        const result = await dispatch(createProject(formData));
+
+        setNewProject(result);
+      } catch (error) {
+        console.error("Project creation failed:", error);
       }
     },
   });
@@ -55,14 +96,13 @@ const ProjectPage = () => {
     dispatch(projectDelete(id));
   };
 
-  useEffect(() => {
-    dispatch(projectList(""));
-  }, [dispatch, projectId, newProject]);
-
-
   const toggleRowExpansion = (index) => {
     setExpandedRowIndex(expandedRowIndex === index ? null : index);
   };
+
+  useEffect(() => {
+    dispatch(projectList(""));
+  }, [dispatch, projectId, newProject]);
 
   useEffect(() => {
     dispatch(getProjectData(editeProject));
@@ -120,7 +160,6 @@ const ProjectPage = () => {
                 <th style={{ width: "40%" }}>Short Description</th>
                 <th style={{ width: "40%" }}>Description</th>
                 <th style={{ width: "60%" }}>Photos</th>
-                <th style={{ width: "10%" }}>Video</th>
                 <th style={{ width: "10%" }}>Github</th>
                 <th style={{ width: "20%" }}>Live URL</th>
                 <th style={{ width: "40%" }}>Action</th>
@@ -138,8 +177,9 @@ const ProjectPage = () => {
                   <td>{renderDescription(project.description, index)}</td>
 
                   <td>
-                    {project?.photoes?.map((img, index) => (
+                    {project?.media?.map((img, index) => (
                       <div
+                        key={index}
                         id="carouselExampleControls"
                         className="carousel slide"
                         data-bs-ride="carousel"
@@ -153,41 +193,8 @@ const ProjectPage = () => {
                             />
                           </div>
                         </div>
-                        <button
-                          className="carousel-control-prev"
-                          type="button"
-                          data-bs-target="#carouselExampleControls"
-                          data-bs-slide="prev"
-                        >
-                          <span
-                            className="carousel-control-prev-icon"
-                            aria-hidden="true"
-                          />
-                          <span className="visually-hidden">Previous</span>
-                        </button>
-                        <button
-                          className="carousel-control-next"
-                          type="button"
-                          data-bs-target="#carouselExampleControls"
-                          data-bs-slide="next"
-                        >
-                          <span
-                            className="carousel-control-next-icon"
-                            aria-hidden="true"
-                          />
-                          <span className="visually-hidden">Next</span>
-                        </button>
                       </div>
                     ))}
-                  </td>
-                  <td>
-                    <video controls width="100%">
-                      <source
-                        src={`${process.env.REACT_APP_API_BASE_URL}${project.video}`}
-                        type="video/mp4"
-                      />
-                      Sorry, your browser doesn't support embedded videos.
-                    </video>
                   </td>
 
                   <td>
@@ -223,7 +230,7 @@ const ProjectPage = () => {
             </tbody>
           </table>
         </div>
-
+        {/* Add New project */}
         <div
           className="modal fade"
           id="staticBackdrop"
@@ -237,7 +244,7 @@ const ProjectPage = () => {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="staticBackdropLabel">
-                  Add new project{" "}
+                  Add new project
                 </h5>
                 <button
                   type="button"
@@ -314,32 +321,17 @@ const ProjectPage = () => {
                   <div className="form-floating  mb-3">
                     <input
                       type="file"
-                      name="image"
+                      name="media"
                       multiple
                       className="form-control"
                       placeholder="Image"
                       accept="image/*"
-                      onChange={
-                        (e) =>
-                          formik.setFieldValue("image", e.currentTarget.files) // Set the value for 'pic'
+                      onChange={(e) =>
+                        formik.setFieldValue("media", e.currentTarget.files)
                       }
                     />
+
                     <label htmlFor="floatingPassword">Image</label>
-                  </div>
-                  <div className="form-floating  mb-3">
-                    <input
-                      type="file"
-                      name="video"
-                      multiple
-                      className="form-control"
-                      placeholder="Video"
-                      accept="video/*"
-                      onChange={
-                        (e) =>
-                          formik.setFieldValue("video", e.currentTarget.files) // Set the value for 'pic'
-                      }
-                    />
-                    <label htmlFor="floatingPassword">Video</label>
                   </div>
                 </div>
                 <div className="modal-footer">
@@ -384,7 +376,7 @@ const ProjectPage = () => {
                 />
               </div>
               <form
-                onSubmit={formik.handleSubmit}
+                onSubmit={editFormik.handleSubmit}
                 encType="multipart/form-data"
                 className="edit-profile-form"
               >
@@ -395,8 +387,8 @@ const ProjectPage = () => {
                       className="form-control"
                       placeholder="Title"
                       name="title"
-                      onChange={formik.handleChange}
-                      value={formik.values.title || projectData.title}
+                      onChange={editFormik.handleChange}
+                      value={editFormik.values.title || projectData.title}
                     />
                     <label htmlFor="floatingInput">Title</label>
                   </div>
@@ -406,20 +398,23 @@ const ProjectPage = () => {
                       className="form-control"
                       placeholder="Title"
                       name="short_desc"
-                      onChange={formik.handleChange}
-                      value={formik.values.short_desc || projectData.short_desc}
+                      onChange={editFormik.handleChange}
+                      value={
+                        editFormik.values.short_desc || projectData.short_desc
+                      }
                     />
                     <label htmlFor="floatingInput">Short description</label>
                   </div>
                   <div className="form-floating  mb-3">
                     <input
-                      type="text"
+                      type="file"
+                      name="media"
+                      multiple
                       className="form-control"
-                      placeholder="Description"
-                      name="description"
-                      onChange={formik.handleChange}
-                      value={
-                        formik.values.description || projectData.description
+                      placeholder="Image"
+                      accept="image/*"
+                      onChange={(e) =>
+                        editFormik.setFieldValue("media", e.currentTarget.files)
                       }
                     />
                     <label htmlFor="floatingPassword">Description</label>
@@ -431,8 +426,8 @@ const ProjectPage = () => {
                       className="form-control"
                       placeholder="Github"
                       name="github"
-                      onChange={formik.handleChange}
-                      value={formik.values.github || projectData.github}
+                      onChange={editFormik.handleChange}
+                      value={editFormik.values.github || projectData.github}
                     />
                     <label htmlFor="floatingPassword">Github</label>
                   </div>
@@ -443,8 +438,8 @@ const ProjectPage = () => {
                       className="form-control"
                       placeholder="Live URL"
                       name="liveURL"
-                      onChange={formik.handleChange}
-                      value={formik.values.liveURL || projectData.liveURL}
+                      onChange={editFormik.handleChange}
+                      value={editFormik.values.liveURL || projectData.liveURL}
                     />
                     <label htmlFor="floatingPassword">Live URL</label>
                   </div>
@@ -459,25 +454,13 @@ const ProjectPage = () => {
                       accept="image/*"
                       onChange={
                         (e) =>
-                          formik.setFieldValue("image", e.currentTarget.files) // Set the value for 'pic'
+                          editFormik.setFieldValue(
+                            "image",
+                            e.currentTarget.files
+                          ) // Set the value for 'pic'
                       }
                     />
                     <label htmlFor="floatingPassword">Image</label>
-                  </div>
-                  <div className="form-floating  mb-3">
-                    <input
-                      type="file"
-                      name="video"
-                      multiple
-                      className="form-control"
-                      placeholder="Video"
-                      accept="video/*"
-                      onChange={
-                        (e) =>
-                          formik.setFieldValue("video", e.currentTarget.files) // Set the value for 'pic'
-                      }
-                    />
-                    <label htmlFor="floatingPassword">Video</label>
                   </div>
                 </div>
                 <div className="modal-footer">
@@ -496,6 +479,7 @@ const ProjectPage = () => {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
